@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private CharacterController controller;
+    private Animator animator;
+    private bool moving = false;
     private float playerSpeed = 8f;
     private float turnSmoothTime = 0.1f;
     private float turnSmoothVelocity;
@@ -16,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -28,6 +31,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (direction.magnitude >= 0.1f)
         {
+            animator.SetBool("moving", true);
+            moving = true;
+
             //adjust for camera's ofset
             direction = Camera.main.transform.TransformDirection(direction);
             direction.y = 0.0f;
@@ -36,6 +42,10 @@ public class PlayerMovement : MonoBehaviour
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
             direction *= playerSpeed;
+        } else if (moving)
+        {
+            animator.SetBool("moving", false);
+            moving = false;
         }
 
         //check for player jump
