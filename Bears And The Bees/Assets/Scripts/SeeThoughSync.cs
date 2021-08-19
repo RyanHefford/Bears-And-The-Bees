@@ -14,6 +14,7 @@ public class SeeThoughSync : MonoBehaviour
     private float smoothnessSpeed = 3f;
     private float currentSize = 0f;
     private bool isBehindWall = false;
+    public float maxHoleSize = 2f;
 
     private void Start()
     {
@@ -28,7 +29,7 @@ public class SeeThoughSync : MonoBehaviour
 
         if (Physics.Raycast(ray, 300, mask))
         {
-            if (currentSize < 1)
+            if (currentSize < maxHoleSize)
             {
                 currentSize += smoothnessSpeed * Time.deltaTime;
                 wallMaterial.SetFloat(sizeID, currentSize);
