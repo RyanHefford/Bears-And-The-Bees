@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\ItemScript.cs" />
     <Compile Include="Assets\Scripts\ItemFloat.cs" />
     <Compile Include="Assets\Scripts\ItemHandle.cs" />
+    <Compile Include="Assets\Scripts\ItemPopup.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\SeeThoughWalls\SeeThroughShader.shader" />
