@@ -77,6 +77,8 @@
     <Compile Include="Assets\LevelGenerator\Scripts\Exceptions\InvalidRuleDeclarationException.cs" />
     <Compile Include="Assets\Scripts\SeeThoughSync.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\LevelGenerate.cs" />
+    <Compile Include="Assets\Scripts\CameraController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\SeeThoughWalls\SeeThroughShader.shader" />

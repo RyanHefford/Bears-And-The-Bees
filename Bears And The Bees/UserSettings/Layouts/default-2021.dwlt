@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1904
     height: 981
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Game
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 103
+  controlID: 17
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 17
+  controlID: 72
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 18
+  controlID: 73
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -2262,23 +2262,23 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Blender/Levels
+    - Assets/Prefabs/Areas
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Blender/Levels
+  - Assets/Prefabs/Areas
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\User\Documents\RMITY3S2\MediaProj\Bears-And-The-Bees\Bears
     And The Bees
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 28610000
-    m_LastClickedID: 24872
-    m_ExpandedIDs: 00000000e05f0000e25f000000ca9a3b
+    scrollPos: {x: 0, y: 18}
+    m_SelectedIDs: 12820000
+    m_LastClickedID: 33298
+    m_ExpandedIDs: 000000007e66000080660000d067000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2306,7 +2306,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000e05f0000e25f0000
+    m_ExpandedIDs: 000000007e66000080660000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2440,7 +2440,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 16faffff1cfaffff28fbffff
+      m_ExpandedIDs: fad6feffb2edfeff8e4bffff62d8ffff1ef0ffff28fbffffc66b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -2691,9 +2691,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 152.21437, y: -136.67119, z: -375.75262}
+    m_Target: {x: -41.467922, y: -397.7252, z: -256.2128}
     speed: 2
-    m_Value: {x: 152.21437, y: -136.67119, z: -375.75262}
+    m_Value: {x: -41.467922, y: -397.7252, z: -256.2128}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -2740,13 +2740,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.05763109, y: 0.93589854, z: -0.18223603, w: 0.2959791}
+    m_Target: {x: -0.005177431, y: 0.8621216, z: -0.5066523, w: -0.008789599}
     speed: 2
-    m_Value: {x: 0.05763109, y: 0.93589854, z: -0.18223603, w: 0.2959791}
+    m_Value: {x: -0.0051772906, y: 0.8620983, z: -0.5066386, w: -0.008789361}
   m_Size:
-    m_Target: 226.39644
+    m_Target: 269.59232
     speed: 2
-    m_Value: 226.39644
+    m_Value: 269.59232
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -2824,8 +2824,8 @@ MonoBehaviour:
     vZoomLockedByDefault: 0
     m_HBaseRangeMin: -570.5
     m_HBaseRangeMax: 570.5
-    m_VBaseRangeMin: -281.5
-    m_VBaseRangeMax: 281.5
+    m_VBaseRangeMin: -271
+    m_VBaseRangeMax: 271
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -2842,11 +2842,11 @@ MonoBehaviour:
     m_DrawArea:
       serializedVersion: 2
       x: 0
-      y: 0
+      y: 21
       width: 1141
-      height: 563
+      height: 542
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 570.5, y: 281.5}
+    m_Translation: {x: 570.5, y: 271}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
@@ -2854,9 +2854,9 @@ MonoBehaviour:
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
       x: -570.5
-      y: -281.5
+      y: -271
       width: 1141
-      height: 563
+      height: 542
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_LastWindowPixelSize: {x: 1141, y: 563}
