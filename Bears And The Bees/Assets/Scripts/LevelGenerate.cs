@@ -28,7 +28,7 @@ public class LevelGenerate : MonoBehaviour
 
         for (int i = 0; i < maxAreas; i++)
         {
-            int randomArea = Random.Range(0, 4);
+            int randomArea = Random.Range(0, 6);
 
             if (i != 0)
             {

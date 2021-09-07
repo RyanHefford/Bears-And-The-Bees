@@ -358,27 +358,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbdbc96ab232cb146a37b4efefc5e42e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAreas: 4
+  maxAreas: 8
   areas:
-  - {fileID: 6977865660726874928, guid: 5847e1a6dafa9e040b6326d7a65b1ed9, type: 3}
-  - {fileID: 348043254767084343, guid: 0e8b5d70d782ed1468c5563652376f05, type: 3}
-  - {fileID: 4395183574260440573, guid: 008380c85c5d45943a8e25aedc807194, type: 3}
-  - {fileID: 1120214777525892711, guid: ced5a30a9ad57354a8527e711f14d7ab, type: 3}
+  - {fileID: 8121028146587083136, guid: 3391f8d7b9d703746b202f318df3308f, type: 3}
+  - {fileID: 1504182769494156018, guid: 0e8b5d70d782ed1468c5563652376f05, type: 3}
+  - {fileID: 4351183181128770354, guid: e8507fa4969d1434ebfd213d8f6ccd04, type: 3}
+  - {fileID: 4604047014822000519, guid: 9a67e3bfe65d74a468084f3f2fda7235, type: 3}
+  - {fileID: 857316127998668784, guid: 7bf390e900ee39c4f925f3309e34ddfd, type: 3}
+  - {fileID: 8060013967562846539, guid: 91741c43af78e3b4f8621be97edf32a9, type: 3}
   areaLength:
   - 54
   - 54
   - 54
-  - 54
+  - 101
+  - 147.5
+  - 147.5
   areaEntrances:
   - -8.5
   - -8.5
   - -50
-  - -8.5
+  - -24
+  - -24
+  - -24
   areaExits:
   - -8.5
   - -34.5
   - -8.5
-  - -34.5
+  - -24
+  - -8
+  - -42.3
 --- !u!1 &1784183880
 GameObject:
   m_ObjectHideFlags: 0
