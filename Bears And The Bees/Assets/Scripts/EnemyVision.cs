@@ -33,6 +33,7 @@ public class EnemyVision : MonoBehaviour
     private float searchTime = 0f;
     public float secUntilChase = 2f;
     private Vector3 lastSeenPosition;
+    private PlayerMovement playerMovement;
 
     //vision cone
     public MeshFilter viewMeshFilter;
@@ -47,22 +48,24 @@ public class EnemyVision : MonoBehaviour
         viewMesh = new Mesh();
         viewMesh.name = "View Mesh";
         viewMeshFilter.mesh = viewMesh;
+        playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
 
         audioSource = GetComponent<AudioSource>();
         audioClips = Resources.LoadAll<AudioClip>("Sound/BeeSpotted");
-        meshRenderer = GameObject.FindGameObjectWithTag("VisionCone").GetComponent<MeshRenderer>();
+        meshRenderer = GetComponentInChildren<MeshRenderer>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (!isAlert)
         {
             //Logic for changing states
             if (canSeePlayer)
             {
-                if (timeSeenPlayer >= secUntilChase || searchTime > 0)
+                if (timeSeenPlayer >= secUntilChase - playerMovement.visibility || searchTime > 0)
                 {
                     currState = STATE.CHASING;
                     searchTime = maxSearchTime;
@@ -75,7 +78,7 @@ public class EnemyVision : MonoBehaviour
                         //play alert sound effect
                         audioSource.PlayOneShot(audioClips[Random.Range(0, audioClips.Length)]);
                         firstTimeSpotted = false;
-                        StartCoroutine(alertDelay());
+                        StartCoroutine(AlertDelay());
                     }
                 }
                 timeSeenPlayer += Time.deltaTime;
@@ -111,7 +114,7 @@ public class EnemyVision : MonoBehaviour
         return currState;
     }
 
-    private IEnumerator alertDelay()
+    private IEnumerator AlertDelay()
     {
         isAlert = true;
         yield return new WaitForSeconds(alertPauseDuration);
@@ -263,6 +266,7 @@ public class EnemyVision : MonoBehaviour
 
             case STATE.ALERT:
                 meshRenderer.material.color = new Color(1, 0.5f, 0, 0.5f);
+                print("Here");
                 break;
 
             case STATE.CHASING:

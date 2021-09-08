@@ -70,9 +70,6 @@
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\SeeThoughWalls\SeeThroughShader.shader" />
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\2021.2.0b7\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

@@ -30,6 +30,7 @@ public class ItemHandle : MonoBehaviour
             //belt
             case 1:
                 playerMove.playerSpeed += 3f;
+                playerMove.visibility += 1f;
                 break;
         }
 

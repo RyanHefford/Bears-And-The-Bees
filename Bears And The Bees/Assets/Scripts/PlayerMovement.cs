@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private float turnSmoothTime = 0.1f;
     private float turnSmoothVelocity;
     public float jumpSpeed = 8.0f;
+    public float visibility = 0.0f;
     private float gravity = 20.0f;
     private Vector3 jumpVelocity = Vector3.zero;
 

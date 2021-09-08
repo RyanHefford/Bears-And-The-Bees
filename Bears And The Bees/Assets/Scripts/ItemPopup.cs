@@ -16,7 +16,6 @@ public class ItemPopup : MonoBehaviour
         "Fluorescent Belt!!\n\nMove Speed Way Up!!\nVisibility Up!"
     };
 
-    private bool fadeIn = false;
 
     // Start is called before the first frame update
     void Start()
@@ -41,8 +40,6 @@ public class ItemPopup : MonoBehaviour
 
     public void ChangeItem(int id)
     {
-        fadeIn = true;
-
         itemIcon.sprite = iconList[id];
         itemDescription.text = descriptionList[id];
         
