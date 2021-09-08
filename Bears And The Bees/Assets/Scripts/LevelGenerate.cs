@@ -5,6 +5,8 @@ using UnityEngine;
 public class LevelGenerate : MonoBehaviour
 {
     public int maxAreas;
+    public GameObject doorBarrier;
+    public GameObject player;
     public GameObject[] areas;
     public float[] areaLength;
     public float[] areaEntrances;
@@ -35,6 +37,12 @@ public class LevelGenerate : MonoBehaviour
                 float currDist = areaExits[prevArea] - areaEntrances[randomArea] + prevDist;
                 currXPos = currDist;
                 prevDist = currDist;
+            } 
+            else
+            {
+                Vector3 doorPosition = new Vector3(areaEntrances[randomArea], 0f, 6f);
+                Instantiate(doorBarrier, doorPosition, Quaternion.identity);
+                InstantiatePlayer(randomArea);
             }
 
             Vector3 position = new Vector3(currXPos, 0f, -currZPos);
@@ -45,5 +53,12 @@ public class LevelGenerate : MonoBehaviour
 
             prevArea = randomArea;
         }
+    }
+
+    private void InstantiatePlayer(int areaNum)
+    {
+        Vector3 position = new Vector3(areaEntrances[areaNum] - 3.5f, 1f, 3f);
+
+        Instantiate(player, position, Quaternion.identity);
     }
 }

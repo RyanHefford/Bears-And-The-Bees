@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &215234745727750885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 215234745727750882}
+  - component: {fileID: 215234745727750883}
+  m_Layer: 0
+  m_Name: LevelMaker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &215234745727750882
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215234745727750885}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &215234745727750883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215234745727750885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbdbc96ab232cb146a37b4efefc5e42e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxAreas: 8
+  doorBarrier: {fileID: 3719976040984898396, guid: c1f161a77792d974e903d18f81b96ef8,
+    type: 3}
+  player: {fileID: 1508103757994620786, guid: 1c337aa3835794649b2d934e4560bdef, type: 3}
+  areas:
+  - {fileID: 8121028146587083136, guid: 3391f8d7b9d703746b202f318df3308f, type: 3}
+  - {fileID: 1504182769494156018, guid: 0e8b5d70d782ed1468c5563652376f05, type: 3}
+  - {fileID: 4351183181128770354, guid: e8507fa4969d1434ebfd213d8f6ccd04, type: 3}
+  - {fileID: 4604047014822000519, guid: 9a67e3bfe65d74a468084f3f2fda7235, type: 3}
+  - {fileID: 857316127998668784, guid: 7bf390e900ee39c4f925f3309e34ddfd, type: 3}
+  - {fileID: 8060013967562846539, guid: 91741c43af78e3b4f8621be97edf32a9, type: 3}
+  areaLength:
+  - 54
+  - 54
+  - 54
+  - 101
+  - 147.5
+  - 147.5
+  areaEntrances:
+  - -8.5
+  - -8.5
+  - -50
+  - -24
+  - -24
+  - -24
+  areaExits:
+  - -8.5
+  - -34.5
+  - -8.5
+  - -24
+  - -8
+  - -42.3
