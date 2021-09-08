@@ -47,7 +47,7 @@ MonoBehaviour:
   maxAreas: 8
   doorBarrier: {fileID: 3719976040984898396, guid: c1f161a77792d974e903d18f81b96ef8,
     type: 3}
-  player: {fileID: 1508103757994620786, guid: 1c337aa3835794649b2d934e4560bdef, type: 3}
+  player: {fileID: 1771304988507040055, guid: a630b40037d5dca49adcae5ac66b0ea1, type: 3}
   areas:
   - {fileID: 8121028146587083136, guid: 3391f8d7b9d703746b202f318df3308f, type: 3}
   - {fileID: 1504182769494156018, guid: 0e8b5d70d782ed1468c5563652376f05, type: 3}

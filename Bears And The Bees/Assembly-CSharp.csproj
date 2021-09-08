@@ -60,25 +60,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\LevelGenerate.cs" />
-    <Compile Include="Assets\LevelGenerator\Scripts\Exits.cs" />
-    <Compile Include="Assets\LevelGenerator\Scripts\Helpers\RandomService.cs" />
-    <Compile Include="Assets\LevelGenerator\Scripts\Helpers\ExtensionMethods.cs" />
-    <Compile Include="Assets\LevelGenerator\Scripts\Structure\TagRule.cs" />
-    <Compile Include="Assets\LevelGenerator\Scripts\Structure\WeightedList.cs" />
-    <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
-    <Compile Include="Assets\LevelGenerator\Scripts\Section.cs" />
-    <Compile Include="Assets\LevelGenerator\Scripts\Bounds.cs" />
-    <Compile Include="Assets\LevelGenerator\Scripts\LevelGenerator.cs" />
+    <Compile Include="Assets\Scripts\PlayerMovement1.cs" />
     <Compile Include="Assets\LevelGenerator\Scripts\AdvancedExit.cs" />
-    <Compile Include="Assets\LevelGenerator\Scripts\Structure\WeightedSectionList.cs" />
-    <Compile Include="Assets\LevelGenerator\Scripts\DeadEnd.cs" />
-    <Compile Include="Assets\LevelGenerator\Scripts\Structure\WeightedListItem.cs" />
     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\EnemyVision.cs" />
-    <Compile Include="Assets\LevelGenerator\Scripts\Exceptions\InvalidRuleDeclarationException.cs" />
     <Compile Include="Assets\Scripts\SeeThoughSync.cs" />
-    <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\CameraFollow1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\SeeThoughWalls\SeeThroughShader.shader" />
