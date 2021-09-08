@@ -63,10 +63,10 @@
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement1.cs" />
     <Compile Include="Assets\LevelGenerator\Scripts\AdvancedExit.cs" />
+    <Compile Include="Assets\Scripts\CameraFollow1.cs" />
     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\EnemyVision.cs" />
     <Compile Include="Assets\Scripts\SeeThoughSync.cs" />
-    <Compile Include="Assets\Scripts\CameraFollow1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\SeeThoughWalls\SeeThroughShader.shader" />
