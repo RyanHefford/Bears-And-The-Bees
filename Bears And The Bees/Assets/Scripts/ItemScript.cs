@@ -18,7 +18,6 @@ public class ItemScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print("Here");
         if (other.gameObject.CompareTag("Player"))
         {
             ItemHandle itemHandle = other.gameObject.GetComponent<ItemHandle>();

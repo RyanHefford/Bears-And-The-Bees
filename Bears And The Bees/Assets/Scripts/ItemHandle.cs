@@ -24,9 +24,15 @@ public class ItemHandle : MonoBehaviour
         {
             //shoes
             case 0:
-                playerMove.playerSpeed += 2.5f;
-                playerMove.jumpSpeed += 3.3f;
+                playerMove.playerSpeed += 1f;
+                playerMove.jumpSpeed += 3f;
+                break;
+            //belt
+            case 1:
+                playerMove.playerSpeed += 3f;
                 break;
         }
+
+        FindObjectOfType<Canvas>().GetComponentInChildren<ItemPopup>().ChangeItem(ID);
     }
 }
