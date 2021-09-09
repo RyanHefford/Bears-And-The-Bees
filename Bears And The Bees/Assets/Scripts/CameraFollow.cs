@@ -11,7 +11,7 @@ public class CameraFollow : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        cameraOffset = new Vector3(6, 8, -6);
+        cameraOffset = new Vector3(-6, 8, 6);
     }
 
     void FixedUpdate()

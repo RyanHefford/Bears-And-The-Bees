@@ -100,7 +100,11 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
+<<<<<<< HEAD
     - _size: -0.0003764542
+=======
+    - _size: -0.0007046298
+>>>>>>> LevelMake
     m_Colors:
     - Color_D991AF9C: {r: 1, g: 1, b: 1, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
@@ -108,7 +112,11 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _Tint: {r: 1, g: 0.6698078, b: 0, a: 0}
+<<<<<<< HEAD
     - _position: {r: 0.4872089, g: 0.5072521, b: 11.40926, a: 0}
+=======
+    - _position: {r: 0.49751422, g: -0.7728759, b: 346.0307, a: 0}
+>>>>>>> LevelMake
   m_BuildTextureStacks: []
 --- !u!114 &2666110696102784061
 MonoBehaviour:

@@ -64,10 +64,15 @@
     <Compile Include="Assets\Scripts\ItemPopup.cs" />
     <Compile Include="Assets\Scripts\ItemScript.cs" />
     <Compile Include="Assets\Scripts\ItemFloat.cs" />
+    <Compile Include="Assets\Scripts\LevelGenerate.cs" />
+    <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\PlayerMovement1.cs" />
+    <Compile Include="Assets\LevelGenerator\Scripts\AdvancedExit.cs" />
+    <Compile Include="Assets\Scripts\CameraFollow1.cs" />
     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\EnemyVision.cs" />
+    <Compile Include="Assets\Scripts\RotatingBottle.cs" />
     <Compile Include="Assets\Scripts\SeeThoughSync.cs" />
-    <Compile Include="Assets\Scripts\PlayerMovement.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
