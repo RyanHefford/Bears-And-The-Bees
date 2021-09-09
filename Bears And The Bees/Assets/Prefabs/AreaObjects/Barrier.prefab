@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 5953920638591466244}
   - component: {fileID: 8875299020126795166}
   - component: {fileID: 4170370021019898492}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 7449597853712236474}
   - component: {fileID: 8421155134654046138}
   - component: {fileID: 778817311492480672}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 4034368237958193344}
   - component: {fileID: 5621629384100616042}
   - component: {fileID: 8290257495243080078}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NurbsPath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +341,7 @@ GameObject:
   - component: {fileID: 2440806539354395472}
   - component: {fileID: 8861146264538246139}
   - component: {fileID: 4903134663815313077}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}

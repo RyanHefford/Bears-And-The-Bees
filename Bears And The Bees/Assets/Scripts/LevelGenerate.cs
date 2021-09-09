@@ -6,7 +6,9 @@ public class LevelGenerate : MonoBehaviour
 {
     public int maxAreas;
     public GameObject doorBarrier;
+    public GameObject endBarrier;
     public GameObject player;
+    public GameObject honeyBottle;
     public GameObject[] areas;
     public float[] areaLength;
     public float[] areaEntrances;
@@ -38,7 +40,7 @@ public class LevelGenerate : MonoBehaviour
                 currXPos = currDist;
                 prevDist = currDist;
             } 
-            else
+            else if (i == 0)
             {
                 Vector3 doorPosition = new Vector3(areaEntrances[randomArea], 0f, 6f);
                 Instantiate(doorBarrier, doorPosition, Quaternion.identity);
@@ -52,6 +54,18 @@ public class LevelGenerate : MonoBehaviour
             currZPos += areaLength[randomArea];
 
             prevArea = randomArea;
+
+            // Adding ending point and honey
+            if (i == maxAreas - 1)
+            {
+                float endDist = areaExits[randomArea] + prevDist - 3.5f;
+                float newEndZPos = currZPos - 3; 
+                Vector3 endPosition = new Vector3(endDist, 0f, -newEndZPos);
+                Vector3 honeyPosition = new Vector3(endDist, 2f, -newEndZPos);
+
+                Instantiate(endBarrier, endPosition, Quaternion.identity);
+                Instantiate(honeyBottle, honeyPosition, Quaternion.identity);
+            }
         }
     }
 

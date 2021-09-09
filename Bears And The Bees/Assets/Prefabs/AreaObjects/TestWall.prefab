@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4656159277969488528}
   - component: {fileID: 461178651605541633}
   - component: {fileID: 1714268582142938955}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 6114070920223150337}
   - component: {fileID: 1152897394477492650}
   - component: {fileID: 542714219448706340}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 451014504740417653}
   - component: {fileID: 4211575784673944682}
   - component: {fileID: 8643522471825238322}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 5632828884706937250}
   - component: {fileID: 4993592663652703018}
   - component: {fileID: 8142757666145304114}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gear.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 3594403012438865397}
   - component: {fileID: 2110889603720000286}
   - component: {fileID: 2434772529875141644}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gear.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -503,7 +503,7 @@ GameObject:
   - component: {fileID: 2073247725673978779}
   - component: {fileID: 7475284267385557482}
   - component: {fileID: 3560033061858587115}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NurbsPath.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -601,7 +601,7 @@ GameObject:
   - component: {fileID: 3405939274504085827}
   - component: {fileID: 3841837587891475840}
   - component: {fileID: 983621446992565462}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NurbsPath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -699,7 +699,7 @@ GameObject:
   - component: {fileID: 3038512196421862308}
   - component: {fileID: 2140361564494049645}
   - component: {fileID: 8925761879786885124}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -797,7 +797,7 @@ GameObject:
   - component: {fileID: 2857081792241170773}
   - component: {fileID: 1021634221499660239}
   - component: {fileID: 3838743299663393410}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -893,7 +893,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7661942580669736699}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TestWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -936,7 +936,7 @@ GameObject:
   - component: {fileID: 2871123016901856000}
   - component: {fileID: 5971292378588141535}
   - component: {fileID: 7703399621739395323}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1034,7 +1034,7 @@ GameObject:
   - component: {fileID: 524787710366068068}
   - component: {fileID: 2996164289685290670}
   - component: {fileID: 9162803216975079486}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gear
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\CameraFollow1.cs" />
     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\EnemyVision.cs" />
+    <Compile Include="Assets\Scripts\RotatingBottle.cs" />
     <Compile Include="Assets\Scripts\SeeThoughSync.cs" />
   </ItemGroup>
   <ItemGroup>

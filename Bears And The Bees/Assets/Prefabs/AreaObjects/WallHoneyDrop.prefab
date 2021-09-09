@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7701410704584040865}
   - component: {fileID: 2298777344007159166}
   - component: {fileID: 9009096606740935248}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2840679798374599770}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WallHoneyDrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 8817236440455422494}
   - component: {fileID: 5832670249489500197}
   - component: {fileID: 491188131951248760}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gear.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 5364003429513512901}
   - component: {fileID: 7254222145689719823}
   - component: {fileID: 8593565528611773130}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 1675167639522757037}
   - component: {fileID: 3919718133545788576}
   - component: {fileID: 3161095386571409364}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -440,7 +440,7 @@ GameObject:
   - component: {fileID: 221656122794779395}
   - component: {fileID: 609218525499322763}
   - component: {fileID: 1018933374063723909}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gear.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
