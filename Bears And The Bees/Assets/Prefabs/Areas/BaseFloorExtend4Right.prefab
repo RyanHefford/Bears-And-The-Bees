@@ -33658,6 +33658,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2300663513603330306}
+  - component: {fileID: 9023099270918381711}
   m_Layer: 10
   m_Name: BaseFloorExtend4Right
   m_TagString: Untagged
@@ -33705,6 +33706,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9023099270918381711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8060013967562846539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bba1d6bc3e5ebd47b4cbc75907d4739, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  length: 147.5
+  entranceDist: -24
+  exitDist: -42.3
 --- !u!1 &8066070762184736194
 GameObject:
   m_ObjectHideFlags: 0

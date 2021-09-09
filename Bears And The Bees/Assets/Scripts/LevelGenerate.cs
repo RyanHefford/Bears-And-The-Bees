@@ -10,9 +10,6 @@ public class LevelGenerate : MonoBehaviour
     public GameObject player;
     public GameObject honeyBottle;
     public GameObject[] areas;
-    public float[] areaLength;
-    public float[] areaEntrances;
-    public float[] areaExits;
 
     private float numAreas;
     private float transformPosX;
@@ -40,32 +37,35 @@ public class LevelGenerate : MonoBehaviour
         for (int i = 0; i < maxAreas; i++)
         {
             int randomArea = Random.Range(0, 6);
+            AreaValues currAreaValues = areas[randomArea].GetComponent<AreaValues>();
+            AreaValues prevAreaValues = areas[prevArea].GetComponent<AreaValues>();
 
             if (i != 0)
             {
-                float currDist = areaExits[prevArea] - areaEntrances[randomArea] + prevDist;
+                //float currDist = areaExits[prevArea] - areaEntrances[randomArea] + prevDist;
+                float currDist = prevAreaValues.GetExitDist() - currAreaValues.GetEntranceDist() + prevDist;
                 currXPos = currDist + transformPosX;
                 prevDist = currDist;
             } 
             else if (i == 0)
             {
-                Vector3 doorPosition = new Vector3(areaEntrances[randomArea] + currXPos, currYPos, 6f - currZPos);
+                Vector3 doorPosition = new Vector3(currAreaValues.GetEntranceDist() + currXPos, currYPos, 6f - currZPos);
                 Instantiate(doorBarrier, doorPosition, Quaternion.identity);
-                InstantiatePlayer(randomArea);
+                InstantiatePlayer(currAreaValues);
             }
 
             Vector3 position = new Vector3(currXPos, currYPos, -currZPos);
 
             Instantiate(areas[randomArea], position, Quaternion.identity);
 
-            currZPos += areaLength[randomArea];
+            currZPos += currAreaValues.GetAreaLength();
 
             prevArea = randomArea;
 
             // Adding ending point and honey
             if (i == maxAreas - 1)
             {
-                float endDist = areaExits[randomArea] + prevDist - 3.5f + transformPosX;
+                float endDist = currAreaValues.GetExitDist() + prevDist - 3.5f + transformPosX;
                 float newEndZPos = currZPos - 3; 
                 Vector3 endPosition = new Vector3(endDist, currYPos, -newEndZPos);
                 Vector3 honeyPosition = new Vector3(endDist, currYPos + 2f, -newEndZPos);
@@ -76,9 +76,9 @@ public class LevelGenerate : MonoBehaviour
         }
     }
 
-    private void InstantiatePlayer(int areaNum)
+    private void InstantiatePlayer(AreaValues currAreaValues)
     {
-        Vector3 position = new Vector3(areaEntrances[areaNum] - 3.5f + transformPosX, 1f + transformPosY, 3f - transformPosZ);
+        Vector3 position = new Vector3(currAreaValues.GetEntranceDist() - 3.5f + transformPosX, 1f + transformPosY, 3f - transformPosZ);
 
         Instantiate(player, position, Quaternion.identity);
     }
