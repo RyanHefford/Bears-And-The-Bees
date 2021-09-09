@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class RotatingBottle : MonoBehaviour
 {
-    public float rotateDegree;
-    public float rotateInterval;
-    private float rotateTime = 1f;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +14,5 @@ public class RotatingBottle : MonoBehaviour
     void Update()
     {
         transform.Rotate(0, -50 * Time.deltaTime, 0);
-    }
-
-    private void FixedUpdate()
-    {
-        
     }
 }

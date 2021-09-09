@@ -17,15 +17,11 @@ public class SeeThoughSync : MonoBehaviour
 
     private void Start()
     {
-<<<<<<< HEAD
         foreach (Material currMaterial in wallMaterials)
         {
             currMaterial.SetFloat(sizeID, currentSize);
         }
-=======
-        wallMaterial.SetFloat(sizeID, currentSize);
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
->>>>>>> LevelMake
     }
 
     // Update is called once per frame
