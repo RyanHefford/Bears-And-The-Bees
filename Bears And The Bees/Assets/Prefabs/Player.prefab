@@ -80,7 +80,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92f61862ee844d04cbeaabc7592a46c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallMaterial: {fileID: 2100000, guid: c215e1a3dd9c6d24b9436fc9bc2c77f5, type: 2}
+  wallMaterials:
+  - {fileID: 2100000, guid: a4f6061e3004cbb49af816a04db8102d, type: 2}
+  - {fileID: 2100000, guid: 280b55c4feb3fdb4a9c258c2413612c1, type: 2}
+  - {fileID: 2100000, guid: 80f81f2afd164be42acd769206817929, type: 2}
+  - {fileID: 2100000, guid: d01dbb630820eb64f8cc01c85998a311, type: 2}
+  - {fileID: 2100000, guid: b20f0267d3d34194cad011c4baaf89b1, type: 2}
+  - {fileID: 2100000, guid: 8f56e989ff556344d8d4edc854006912, type: 2}
+  - {fileID: 2100000, guid: 8db5bd3055728c944839d7d1b495547e, type: 2}
+  - {fileID: 2100000, guid: 564d8cc833b649143944288bf2943d45, type: 2}
+  - {fileID: 2100000, guid: ab0d79d297c25ae4787bd3effbac27a6, type: 2}
   mainCamera: {fileID: 0}
   mask:
     serializedVersion: 2
