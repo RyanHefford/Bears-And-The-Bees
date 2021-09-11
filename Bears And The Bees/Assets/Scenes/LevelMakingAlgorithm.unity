@@ -172,7 +172,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -710,7 +710,7 @@ PrefabInstance:
     - target: {fileID: 1771304988507040055, guid: a630b40037d5dca49adcae5ac66b0ea1,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a630b40037d5dca49adcae5ac66b0ea1, type: 3}
@@ -789,7 +789,7 @@ PrefabInstance:
     - target: {fileID: 215234745727750885, guid: fc620ed4864daa74b8adf38cf9f6be78,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc620ed4864daa74b8adf38cf9f6be78, type: 3}
@@ -859,6 +859,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BaseFloorExtend3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604047014822000519, guid: 9a67e3bfe65d74a468084f3f2fda7235,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a67e3bfe65d74a468084f3f2fda7235, type: 3}
