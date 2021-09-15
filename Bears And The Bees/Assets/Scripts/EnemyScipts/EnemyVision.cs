@@ -54,6 +54,11 @@ public class EnemyVision : MonoBehaviour
         audioClips = Resources.LoadAll<AudioClip>("Sound/BeeSpotted");
         meshRenderer = GetComponentInChildren<MeshRenderer>();
 
+
+        foreach (AudioClip audio in audioClips)
+        {
+            Debug.Log(audio);
+        }
     }
 
     // Update is called once per frame

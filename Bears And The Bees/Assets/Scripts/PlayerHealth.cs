@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     private int currentHealth;
@@ -27,7 +27,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Application.Quit();
+            SceneManager.LoadScene("NoFinishScene");
         }
 
         healthBar.UpdateHealth(currentHealth, maxHealth);
