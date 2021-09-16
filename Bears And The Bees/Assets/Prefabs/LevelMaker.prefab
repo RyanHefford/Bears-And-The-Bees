@@ -52,6 +52,7 @@ MonoBehaviour:
   player: {fileID: 1771304988507040055, guid: a630b40037d5dca49adcae5ac66b0ea1, type: 3}
   honeyBottle: {fileID: 7573028933101551083, guid: aa3e6901b463541409f0975273d3c4ba,
     type: 3}
+  camera: {fileID: 8075566676503893038, guid: 49d647a4825f2fc449c388a9e6d20b23, type: 3}
   areas:
   - {fileID: 8121028146587083136, guid: 3391f8d7b9d703746b202f318df3308f, type: 3}
   - {fileID: 1504182769494156018, guid: 0e8b5d70d782ed1468c5563652376f05, type: 3}
@@ -59,24 +60,3 @@ MonoBehaviour:
   - {fileID: 4604047014822000519, guid: 9a67e3bfe65d74a468084f3f2fda7235, type: 3}
   - {fileID: 857316127998668784, guid: 7bf390e900ee39c4f925f3309e34ddfd, type: 3}
   - {fileID: 8060013967562846539, guid: 91741c43af78e3b4f8621be97edf32a9, type: 3}
-  areaLength:
-  - 54
-  - 54
-  - 54
-  - 101
-  - 147.5
-  - 147.5
-  areaEntrances:
-  - -8.5
-  - -8.5
-  - -50
-  - -24
-  - -24
-  - -24
-  areaExits:
-  - -8.5
-  - -34.5
-  - -8.5
-  - -24
-  - -8
-  - -42.3

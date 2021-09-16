@@ -9,6 +9,7 @@ public class LevelGenerate : MonoBehaviour
     public GameObject endBarrier;
     public GameObject player;
     public GameObject honeyBottle;
+    public GameObject camera;
     public GameObject[] areas;
 
     private float numAreas;
@@ -18,6 +19,15 @@ public class LevelGenerate : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
+    {
+        //numAreas = areas.Length;
+        //transformPosX = transform.position.x;
+        //transformPosY = transform.position.y;
+        //transformPosZ = transform.position.z;
+        //InstantiateAreas();
+    }
+
+    private void Awake()
     {
         numAreas = areas.Length;
         transformPosX = transform.position.x;
@@ -81,5 +91,7 @@ public class LevelGenerate : MonoBehaviour
         Vector3 position = new Vector3(currAreaValues.GetEntranceDist() - 3.5f + transformPosX, 1f + transformPosY, 3f - transformPosZ);
 
         Instantiate(player, position, Quaternion.identity);
+        GameObject followCamera = Instantiate(camera, position, Quaternion.identity);
+        followCamera.transform.Rotate(45f, 135f, 0f);
     }
 }
