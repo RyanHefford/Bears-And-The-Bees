@@ -99,7 +99,6 @@
     <Compile Include="Assets\LevelGenerator\Scripts\LevelGenerator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\LevelGenerator\Scripts\AdvancedExit.cs" />
-    <Compile Include="Assets\Scripts\CameraFollow1.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\LevelGenerator\Scripts\Structure\WeightedSectionList.cs" />
     <Compile Include="Assets\Scripts\ItemFloat.cs" />
