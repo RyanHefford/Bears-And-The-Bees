@@ -5,10 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private const float CROUCHING_CHANGE = 2.0f;
+
+    private PlayerNoise noise;
     private CharacterController controller;
     private Animator animator;
     private bool moving = false;
-    public float playerSpeed = 8f;
+    private bool crouching = false;
+    public float playerSpeed = 8.0f;
     private float turnSmoothTime = 0.1f;
     private float turnSmoothVelocity;
     public float jumpSpeed = 8.0f;
@@ -21,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
+        noise = GetComponent<PlayerNoise>();
     }
 
     // Update is called once per frame
@@ -33,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (direction.magnitude >= 0.1f)
         {
+
             animator.SetBool("moving", true);
             moving = true;
 
@@ -44,8 +50,10 @@ public class PlayerMovement : MonoBehaviour
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
             direction *= playerSpeed;
+            noise.CalculateNoise(playerSpeed);
         } else if (moving)
         {
+            noise.CalculateNoise(0.0f);
             animator.SetBool("moving", false);
             moving = false;
         }
@@ -65,4 +73,19 @@ public class PlayerMovement : MonoBehaviour
         //Move Player
         controller.Move(direction * Time.deltaTime);
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown("left shift"))
+        {
+            crouching = !crouching;
+            animator.SetBool("crouching", crouching);
+            if (crouching)
+                playerSpeed /= CROUCHING_CHANGE;
+            else
+                playerSpeed *= CROUCHING_CHANGE;
+        }
+    }
+
+
 }

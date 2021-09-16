@@ -100,7 +100,7 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _size: 2.0051327
+    - _size: 2.2557068
     m_Colors:
     - Color_D991AF9C: {r: 1, g: 1, b: 1, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
@@ -108,7 +108,7 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _Tint: {r: 0.70180666, g: 0.7264151, b: 0.4557227, a: 0}
-    - _position: {r: 0.49999952, g: 0.53156006, b: 11.65685, a: 0}
+    - _position: {r: 0.5000349, g: 0.5254408, b: 11.656111, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2666110696102784061
 MonoBehaviour:
