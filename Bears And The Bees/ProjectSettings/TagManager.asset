@@ -8,6 +8,7 @@ TagManager:
   - PlayerHUD
   - Enemy
   - HoneyBottle
+  - PauseMenu
   layers:
   - Default
   - TransparentFX

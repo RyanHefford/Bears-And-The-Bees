@@ -23,6 +23,14 @@ public class MainMenuTest : MonoBehaviour
         SceneManager.LoadScene("MenuSceneTemp");
     }
 
+    public void StopPause()
+    {
+        Time.timeScale = 1f;
+        GameObject pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
+        pauseMenu.SetActive(false);
+        PlayerPrefs.SetInt("Paused", 0);
+    }
+
     public void QuitGame()
     {
         Application.Quit();

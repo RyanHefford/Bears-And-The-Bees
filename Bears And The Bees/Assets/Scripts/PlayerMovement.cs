@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private const float CROUCHING_CHANGE = 2.0f;
 
     private PlayerNoise noise;
+
     private CharacterController controller;
     private Animator animator;
     private bool moving = false;
@@ -19,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public float visibility = 0.0f;
     private float gravity = 20.0f;
     private Vector3 jumpVelocity = Vector3.zero;
+    private GameObject pauseMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,15 @@ public class PlayerMovement : MonoBehaviour
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
         noise = GetComponent<PlayerNoise>();
+        PlayerPrefs.SetInt("Paused", 0);
+        pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
+        pauseMenu.SetActive(false);
+    }
+
+    private void Update()
+    {
+        // Check if player pressed other keys
+        KeyControls();
     }
 
     // Update is called once per frame
@@ -38,7 +49,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (direction.magnitude >= 0.1f)
         {
-
             animator.SetBool("moving", true);
             moving = true;
 
@@ -74,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(direction * Time.deltaTime);
     }
 
-    void Update()
+    private void KeyControls()
     {
         if (Input.GetKeyDown("left shift"))
         {
@@ -85,7 +95,20 @@ public class PlayerMovement : MonoBehaviour
             else
                 playerSpeed *= CROUCHING_CHANGE;
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (PlayerPrefs.GetInt("Paused") == 1)
+            {
+                Time.timeScale = 1f;
+                pauseMenu.SetActive(false);
+                PlayerPrefs.SetInt("Paused", 0);
+            } 
+            else if (PlayerPrefs.GetInt("Paused") == 0)
+            {
+                Time.timeScale = 0f;
+                pauseMenu.SetActive(true);
+                PlayerPrefs.SetInt("Paused", 1);
+            }
+        }
     }
-
-
 }
