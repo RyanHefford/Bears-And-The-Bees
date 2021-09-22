@@ -152,7 +152,6 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 5, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 753929614}
   m_Father: {fileID: 1550026431}
@@ -285,7 +284,6 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 204235942}
   m_RootOrder: 0
@@ -454,7 +452,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -548,7 +545,6 @@ Transform:
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
   m_LocalPosition: {x: 76.7, y: 109.9, z: -135.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -624,7 +620,7 @@ PrefabInstance:
     - target: {fileID: 215234745727750883, guid: fc620ed4864daa74b8adf38cf9f6be78,
         type: 3}
       propertyPath: maxAreas
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 215234745727750885, guid: fc620ed4864daa74b8adf38cf9f6be78,
         type: 3}
@@ -666,7 +662,6 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1892905293}
   m_RootOrder: 0
@@ -802,7 +797,6 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.6, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1892905293}
   - {fileID: 204235942}
@@ -893,7 +887,6 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 5, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1545396363}
   m_Father: {fileID: 1550026431}
