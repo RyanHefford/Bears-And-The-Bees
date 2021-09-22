@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\Scripts\LevelGenerate.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\EnemySpawnDifficulty\SpawnEnemyDifficultyA1.cs" />
     <Compile Include="Assets\LevelGenerator\Scripts\Exits.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
@@ -71,7 +72,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\Scripts\AreaValues.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
-    <Compile Include="Assets\Scripts\EnemyScipts\EnemyAttack.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\EnemyAttack.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\HealthBarUI.cs" />
     <Compile Include="Assets\Scripts\NoiseBarUI.cs" />
@@ -101,9 +102,9 @@
     <Compile Include="Assets\Scripts\ItemFloat.cs" />
     <Compile Include="Assets\LevelGenerator\Scripts\DeadEnd.cs" />
     <Compile Include="Assets\LevelGenerator\Scripts\Structure\WeightedListItem.cs" />
-    <Compile Include="Assets\Scripts\EnemyScipts\EnemyMovement.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\EnemyMovement.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
-    <Compile Include="Assets\Scripts\EnemyScipts\SunEnemyVision.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\SunEnemyVision.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
@@ -111,7 +112,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\Scripts\MainMenuTest.cs" />
-    <Compile Include="Assets\Scripts\EnemyScipts\EnemyVision.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\EnemyVision.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
@@ -122,7 +123,11 @@
     <Compile Include="Assets\Scripts\SeeThoughSync.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
-    <Compile Include="Assets\Scripts\SpawnEnemyDifficulty.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\EnemySpawnDifficulty\SpawnEnemyDifficultyA2.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\EnemySpawnDifficulty\SpawnEnemyDifficultyA3.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\EnemySpawnDifficulty\SpawnEnemyDifficultyA4.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\EnemySpawnDifficulty\SpawnEnemyDifficultyA5Left.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\EnemySpawnDifficulty\SpawnEnemyDifficultyA5Right.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

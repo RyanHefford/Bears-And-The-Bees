@@ -23,6 +23,7 @@ public class LevelGenerate : MonoBehaviour
         transformPosX = transform.position.x;
         transformPosY = transform.position.y;
         transformPosZ = transform.position.z;
+        PlayerPrefs.SetInt("EnemyDifficulty", 1);
         InstantiateAreas();
     }
 
@@ -72,6 +73,14 @@ public class LevelGenerate : MonoBehaviour
 
                 Instantiate(endBarrier, endPosition, Quaternion.identity);
                 Instantiate(honeyBottle, honeyPosition, Quaternion.identity);
+            }
+
+            int check = i % 2;
+
+            if (check == 1)
+            {
+                int enemyDiff = PlayerPrefs.GetInt("EnemyDifficulty") + 1;
+                PlayerPrefs.SetInt("EnemyDifficulty", enemyDiff);
             }
         }
     }
