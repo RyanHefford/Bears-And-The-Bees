@@ -23,43 +23,43 @@ public class SpawnEnemyDifficultyA1 : MonoBehaviour
         if (getEnemyDifficulty < 2)
         {
             Vector3 position1 = new Vector3(-3f, 0.5f, -5f);
-            GameObject bee1 = Instantiate(basicBeeEnemy, position1, Quaternion.identity);
+            GameObject bee1 = Instantiate(basicBeeEnemy, position1 + transform.position, Quaternion.identity);
             bee1.transform.parent = transform;
 
             Vector3 position2 = new Vector3(-12.75f, 0.5f, -32f);
-            GameObject bee2 = Instantiate(basicBeeEnemy, position1, Quaternion.identity);
+            GameObject bee2 = Instantiate(basicBeeEnemy, position2 + transform.position, Quaternion.identity);
             bee2.transform.parent = transform;
         }
         else if (getEnemyDifficulty < 4)
         {
             Vector3 position1 = new Vector3(-3f, 0.5f, -5f);
-            GameObject bee1 = Instantiate(basicBeeEnemy, position1, Quaternion.identity);
+            GameObject bee1 = Instantiate(basicBeeEnemy, position1 + transform.position, Quaternion.identity);
             bee1.transform.parent = transform;
 
             Vector3 position2 = new Vector3(-12.75f, 0.5f, -32f);
-            GameObject bee2 = Instantiate(basicBeeEnemy, position2, Quaternion.identity);
+            GameObject bee2 = Instantiate(basicBeeEnemy, position2 + transform.position, Quaternion.identity);
             bee2.transform.parent = transform;
 
             Vector3 position3 = new Vector3(-19.5f, 0.5f, -18f);
-            GameObject bee3 = Instantiate(basicBeeEnemy, position3, Quaternion.identity);
+            GameObject bee3 = Instantiate(basicBeeEnemy, position3 + transform.position, Quaternion.identity);
             bee3.transform.parent = transform;
         }
         else if (getEnemyDifficulty < 6)
         {
             Vector3 position1 = new Vector3(-3f, 0.5f, -5f);
-            GameObject bee1 = Instantiate(basicBeeEnemy, position1, Quaternion.identity);
+            GameObject bee1 = Instantiate(basicBeeEnemy, position1 + transform.position, Quaternion.identity);
             bee1.transform.parent = transform;
 
             Vector3 position2 = new Vector3(-12.75f, 0.5f, -32f);
-            GameObject bee2 = Instantiate(basicBeeEnemy, position2, Quaternion.identity);
+            GameObject bee2 = Instantiate(basicBeeEnemy, position2 + transform.position, Quaternion.identity);
             bee2.transform.parent = transform;
 
             Vector3 position3 = new Vector3(-19.5f, 0.5f, -18f);
-            GameObject bee3 = Instantiate(basicBeeEnemy, position3, Quaternion.identity);
+            GameObject bee3 = Instantiate(basicBeeEnemy, position3 + transform.position, Quaternion.identity);
             bee3.transform.parent = transform;
 
             Vector3 position4 = new Vector3(-3.2f, 0.5f, -42f);
-            GameObject bee4 = Instantiate(basicBeeEnemy, position4, Quaternion.identity);
+            GameObject bee4 = Instantiate(basicBeeEnemy, position4 + transform.position, Quaternion.identity);
             bee4.transform.parent = transform;
         }
 
