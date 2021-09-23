@@ -13,13 +13,14 @@ public class SpawnEnemyDifficultyA1 : MonoBehaviour
     void Start()
     {
         getEnemyDifficulty = PlayerPrefs.GetInt("EnemyDifficulty");
+        Debug.Log(getEnemyDifficulty);
         SpawnEnemy();
     }
 
     // Spawn enemies at specific points depending on difficulty
     private void SpawnEnemy()
     {
-        if (getEnemyDifficulty == 1)
+        if (getEnemyDifficulty < 2)
         {
             Vector3 position1 = new Vector3(-3f, 0.5f, -5f);
             GameObject bee1 = Instantiate(basicBeeEnemy, position1, Quaternion.identity);
@@ -29,7 +30,7 @@ public class SpawnEnemyDifficultyA1 : MonoBehaviour
             GameObject bee2 = Instantiate(basicBeeEnemy, position1, Quaternion.identity);
             bee2.transform.parent = transform;
         }
-        else if (getEnemyDifficulty == 2)
+        else if (getEnemyDifficulty < 4)
         {
             Vector3 position1 = new Vector3(-3f, 0.5f, -5f);
             GameObject bee1 = Instantiate(basicBeeEnemy, position1, Quaternion.identity);
@@ -43,7 +44,7 @@ public class SpawnEnemyDifficultyA1 : MonoBehaviour
             GameObject bee3 = Instantiate(basicBeeEnemy, position3, Quaternion.identity);
             bee3.transform.parent = transform;
         }
-        else if (getEnemyDifficulty == 3)
+        else if (getEnemyDifficulty < 6)
         {
             Vector3 position1 = new Vector3(-3f, 0.5f, -5f);
             GameObject bee1 = Instantiate(basicBeeEnemy, position1, Quaternion.identity);
@@ -61,5 +62,8 @@ public class SpawnEnemyDifficultyA1 : MonoBehaviour
             GameObject bee4 = Instantiate(basicBeeEnemy, position4, Quaternion.identity);
             bee4.transform.parent = transform;
         }
+
+        int newEnemyDiff = getEnemyDifficulty + 1;
+        PlayerPrefs.SetInt("EnemyDifficulty", newEnemyDiff);
     }
 }

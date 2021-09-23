@@ -23,7 +23,7 @@ public class LevelGenerate : MonoBehaviour
         transformPosX = transform.position.x;
         transformPosY = transform.position.y;
         transformPosZ = transform.position.z;
-        PlayerPrefs.SetInt("EnemyDifficulty", 1);
+        PlayerPrefs.SetInt("EnemyDifficulty", 0);
         InstantiateAreas();
     }
 
@@ -75,13 +75,15 @@ public class LevelGenerate : MonoBehaviour
                 Instantiate(honeyBottle, honeyPosition, Quaternion.identity);
             }
 
-            int check = i % 2;
+            //int check = i % 2;
 
-            if (check == 1)
-            {
-                int enemyDiff = PlayerPrefs.GetInt("EnemyDifficulty") + 1;
-                PlayerPrefs.SetInt("EnemyDifficulty", enemyDiff);
-            }
+            //Debug.Log("Check: " + check);
+
+            //if (check == 1)
+            //{
+            //    int enemyDiff = PlayerPrefs.GetInt("EnemyDifficulty") + 1;
+            //    PlayerPrefs.SetInt("EnemyDifficulty", enemyDiff);
+            //}
         }
     }
 
