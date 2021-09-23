@@ -42,6 +42,9 @@ public class EnemyVision : MonoBehaviour
     public int edgeResolveInterations;
     public float edgeDistanceThreshold;
 
+    //bee animation
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +52,7 @@ public class EnemyVision : MonoBehaviour
         viewMesh.name = "View Mesh";
         viewMeshFilter.mesh = viewMesh;
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        animator = gameObject.GetComponentInParent<Animator>();
 
         audioSource = GetComponent<AudioSource>();
         audioClips = Resources.LoadAll<AudioClip>("Sound/BeeSpotted");
@@ -270,6 +274,7 @@ public class EnemyVision : MonoBehaviour
         {
             case STATE.PASSIVE:
                 meshRenderer.material.color = new Color(0, 1, 0, 0.5f);
+                animator.SetBool("IsAlert", false);
                 break;
 
             case STATE.ALERT:
@@ -278,6 +283,7 @@ public class EnemyVision : MonoBehaviour
 
             case STATE.CHASING:
                 meshRenderer.material.color = new Color(1, 0, 0, 0.5f);
+                animator.SetBool("IsAlert", true);
                 break;
 
             case STATE.SEARCHING:
