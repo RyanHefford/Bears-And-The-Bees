@@ -19,7 +19,6 @@ public class EnemyMovement : MonoBehaviour
         navAgent = GetComponent<NavMeshAgent>();
         parentPosition = transform.parent.position;
         curPatrolPoint = 0;
-
         GoToNextPoint();
     }
 

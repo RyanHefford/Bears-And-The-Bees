@@ -44,6 +44,7 @@ public class EnemyVision : MonoBehaviour
 
     //bee animation
     private Animator animator;
+    private BeeEyeMovement eyeMovement;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +54,7 @@ public class EnemyVision : MonoBehaviour
         viewMeshFilter.mesh = viewMesh;
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         animator = gameObject.GetComponentInParent<Animator>();
+        eyeMovement = GetComponent<BeeEyeMovement>();
 
         audioSource = GetComponent<AudioSource>();
         audioClips = Resources.LoadAll<AudioClip>("Sound/BeeSpotted");
@@ -105,6 +107,7 @@ public class EnemyVision : MonoBehaviour
             }
 
             updateColor();
+            eyeMovement.UpdatePosition(currState != STATE.PASSIVE && currState != STATE.ALERT);
         }
     }
 

@@ -13,7 +13,8 @@ public class ItemPopup : MonoBehaviour
 
     private string[] descriptionList = { 
         "New Vans!!\n\nJump Height Way Up!\nMove Speed Slightly Up!",
-        "Fluorescent Belt!!\n\nMove Speed Way Up!!\nVisibility Up!"
+        "Fluorescent Belt!!\n\nMove Speed Way Up!!\nVisibility Up!",
+        "A Full Roast Chicken!?!!\n\nHealth Up!!\nMove Speed Slightly Down!"
     };
 
 

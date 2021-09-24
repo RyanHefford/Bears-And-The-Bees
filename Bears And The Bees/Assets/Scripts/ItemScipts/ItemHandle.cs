@@ -5,11 +5,13 @@ using UnityEngine;
 public class ItemHandle : MonoBehaviour
 {
     PlayerMovement playerMove;
+    PlayerHealth playerHealth;
 
     // Start is called before the first frame update
     void Start()
     {
         playerMove = GetComponent<PlayerMovement>();
+        playerHealth = GetComponent<PlayerHealth>();
     }
 
     // Update is called once per frame
@@ -31,6 +33,11 @@ public class ItemHandle : MonoBehaviour
             case 1:
                 playerMove.playerSpeed += 3f;
                 playerMove.visibility += 1f;
+                break;
+            //chicken
+            case 2:
+                playerMove.playerSpeed -= 1.5f;
+                playerHealth.ChangeMaxHealth(5);
                 break;
         }
 

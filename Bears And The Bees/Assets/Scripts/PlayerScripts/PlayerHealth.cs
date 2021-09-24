@@ -32,4 +32,19 @@ public class PlayerHealth : MonoBehaviour
 
         healthBar.UpdateHealth(currentHealth, maxHealth);
     }
+
+    public void ChangeMaxHealth(int change)
+    {
+        maxHealth += change;
+
+        if (change > 0)
+        {
+            currentHealth += change;
+        }else if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+
+        healthBar.UpdateHealth(currentHealth, maxHealth);
+    }
 }
