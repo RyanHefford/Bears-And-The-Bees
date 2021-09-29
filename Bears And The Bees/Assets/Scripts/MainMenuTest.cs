@@ -29,7 +29,7 @@ public class MainMenuTest : MonoBehaviour
         Time.timeScale = 1f;
         GameObject pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
         pauseMenu.SetActive(false);
-        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.Locked;
         PlayerPrefs.SetInt("Paused", 0);
     }
 
