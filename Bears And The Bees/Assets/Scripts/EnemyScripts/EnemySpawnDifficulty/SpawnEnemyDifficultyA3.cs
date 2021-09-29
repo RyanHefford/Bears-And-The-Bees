@@ -6,6 +6,7 @@ public class SpawnEnemyDifficultyA3 : MonoBehaviour
 {
     private int getEnemyDifficulty;
     public GameObject basicBeeEnemy;
+    public GameObject saxBeeEnemy;
     public GameObject sunEnemy;
     public GameObject parentArea;
 
@@ -13,7 +14,6 @@ public class SpawnEnemyDifficultyA3 : MonoBehaviour
     void Start()
     {
         getEnemyDifficulty = PlayerPrefs.GetInt("EnemyDifficulty");
-        Debug.Log(getEnemyDifficulty);
         SpawnEnemy();
     }
 
@@ -41,7 +41,7 @@ public class SpawnEnemyDifficultyA3 : MonoBehaviour
             bee2.transform.parent = transform;
 
             Vector3 position3 = new Vector3(-30f, 0.5f, -26f);
-            GameObject bee3 = Instantiate(basicBeeEnemy, position3 + transform.position, Quaternion.identity);
+            GameObject bee3 = Instantiate(saxBeeEnemy, position3 + transform.position, Quaternion.identity);
             bee3.transform.parent = transform;
 
             Vector3 positionSun1 = new Vector3(-28f, 8f, -0.5f);
@@ -60,11 +60,11 @@ public class SpawnEnemyDifficultyA3 : MonoBehaviour
             bee2.transform.parent = transform;
 
             Vector3 position3 = new Vector3(-30f, 0.5f, -26f);
-            GameObject bee3 = Instantiate(basicBeeEnemy, position3 + transform.position, Quaternion.identity);
+            GameObject bee3 = Instantiate(saxBeeEnemy, position3 + transform.position, Quaternion.identity);
             bee3.transform.parent = transform;
 
             Vector3 position4 = new Vector3(-30f, 0.5f, -26f);
-            GameObject bee4 = Instantiate(basicBeeEnemy, position4 + transform.position, Quaternion.identity);
+            GameObject bee4 = Instantiate(saxBeeEnemy, position4 + transform.position, Quaternion.identity);
             bee4.transform.parent = transform;
 
             Vector3 positionSun1 = new Vector3(-28f, 8f, -0.5f);

@@ -20,6 +20,7 @@ public class MainMenuTest : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene("MenuSceneTemp");
     }
 
@@ -28,6 +29,7 @@ public class MainMenuTest : MonoBehaviour
         Time.timeScale = 1f;
         GameObject pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
         pauseMenu.SetActive(false);
+        Cursor.lockState = CursorLockMode.Confined;
         PlayerPrefs.SetInt("Paused", 0);
     }
 

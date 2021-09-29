@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
         PlayerPrefs.SetInt("Paused", 0);
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
         pauseMenu.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Update()
@@ -102,12 +103,14 @@ public class PlayerMovement : MonoBehaviour
                 Time.timeScale = 1f;
                 pauseMenu.SetActive(false);
                 PlayerPrefs.SetInt("Paused", 0);
+                Cursor.lockState = CursorLockMode.Locked;
             } 
             else if (PlayerPrefs.GetInt("Paused") == 0)
             {
                 Time.timeScale = 0f;
                 pauseMenu.SetActive(true);
                 PlayerPrefs.SetInt("Paused", 1);
+                Cursor.lockState = CursorLockMode.None;
             }
         }
     }
