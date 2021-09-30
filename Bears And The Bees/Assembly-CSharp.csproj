@@ -54,7 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
-    <Compile Include="Assets\Scripts\LevelGenerate.cs" />
+    <Compile Include="Assets\Scripts\UI&amp;LevelScripts\LevelGenerate.cs" />
     <Compile Include="Assets\Scripts\EnemyScripts\EnemySpawnDifficulty\SpawnEnemyDifficultyA1.cs" />
     <Compile Include="Assets\LevelGenerator\Scripts\Exits.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
@@ -72,21 +72,21 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\Scripts\ItemScipts\ItemHandle.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
-    <Compile Include="Assets\Scripts\AreaValues.cs" />
+    <Compile Include="Assets\Scripts\UI&amp;LevelScripts\AreaValues.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scripts\EnemyScripts\EnemyAttack.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
-    <Compile Include="Assets\Scripts\HealthBarUI.cs" />
+    <Compile Include="Assets\Scripts\UI&amp;LevelScripts\HealthBarUI.cs" />
     <Compile Include="Assets\Scripts\EnemyScripts\EnemySpawnDifficulty\SpawnEnemyDifficultyA5Left.cs" />
-    <Compile Include="Assets\Scripts\NoiseBarUI.cs" />
+    <Compile Include="Assets\Scripts\PlayerScripts\NoiseBarUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
-    <Compile Include="Assets\Scripts\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\PlayerScripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\ItemScipts\ItemPopup.cs" />
     <Compile Include="Assets\Scripts\ItemScipts\ItemScript.cs" />
     <Compile Include="Assets\Scripts\EnemyScripts\EnemySpawnDifficulty\SpawnEnemyDifficultyA4.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
-    <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\PlayerScripts\CameraController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\LevelGenerator\Scripts\Section.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
@@ -96,7 +96,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\LevelGenerator\Scripts\Bounds.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerHealth.cs" />
-    <Compile Include="Assets\BeeEyeMovement.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\BeeEyeMovement.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerNoise.cs" />
@@ -114,10 +114,10 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
-    <Compile Include="Assets\Scripts\FinishGame.cs" />
+    <Compile Include="Assets\Scripts\UI&amp;LevelScripts\FinishGame.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
-    <Compile Include="Assets\Scripts\MainMenuTest.cs" />
+    <Compile Include="Assets\Scripts\UI&amp;LevelScripts\MainMenuScript.cs" />
     <Compile Include="Assets\Scripts\EnemyScripts\EnemyVision.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
@@ -125,10 +125,11 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\LevelGenerator\Scripts\Exceptions\InvalidRuleDeclarationException.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
-    <Compile Include="Assets\Scripts\RotatingBottle.cs" />
-    <Compile Include="Assets\Scripts\SeeThoughSync.cs" />
+    <Compile Include="Assets\Scripts\UI&amp;LevelScripts\RotatingBottle.cs" />
+    <Compile Include="Assets\Scripts\UI&amp;LevelScripts\SeeThoughSync.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\UI&amp;LevelScripts\SetDifficultyText.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

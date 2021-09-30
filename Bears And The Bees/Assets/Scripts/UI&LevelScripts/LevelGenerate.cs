@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelGenerate : MonoBehaviour
 {
-    public int maxAreas;
+    private int maxAreas;
     public GameObject doorBarrier;
     public GameObject endBarrier;
     public GameObject player;
@@ -23,6 +23,14 @@ public class LevelGenerate : MonoBehaviour
         transformPosX = transform.position.x;
         transformPosY = transform.position.y;
         transformPosZ = transform.position.z;
+        if (PlayerPrefs.GetInt("Difficulty") == default)
+        {
+            maxAreas = 2;
+        }
+        else
+        {
+            maxAreas = PlayerPrefs.GetInt("Difficulty");
+        }
         PlayerPrefs.SetInt("EnemyDifficulty", 0);
         InstantiateAreas();
     }

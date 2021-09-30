@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenuTest : MonoBehaviour
+public class MainMenuScript : MonoBehaviour
 {
 
     public void LoadGame()
@@ -36,5 +36,29 @@ public class MainMenuTest : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void LoadSettingsScene()
+    {
+        SceneManager.LoadScene("SettingsScene");
+        PlayerPrefs.SetString("PreviousScene", SceneManager.GetActiveScene().name);
+    }
+
+    public void EasyDifficulty()
+    {
+        PlayerPrefs.SetInt("Difficulty", 2);
+        PlayerPrefs.SetString("DifficultyText", "Easy");
+    }
+
+    public void MediumDifficulty()
+    {
+        PlayerPrefs.SetInt("Difficulty", 4);
+        PlayerPrefs.SetString("DifficultyText", "Medium");
+    }
+
+    public void HardDifficulty()
+    {
+        PlayerPrefs.SetInt("Difficulty", 6);
+        PlayerPrefs.SetString("DifficultyText", "Hard");
     }
 }

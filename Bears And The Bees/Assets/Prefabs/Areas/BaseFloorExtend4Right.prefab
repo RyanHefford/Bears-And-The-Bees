@@ -1121,7 +1121,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 56040d350b2e1794c8859d051d86bb90, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 787e4c92e5028824b944b55777d00381, type: 2}
 --- !u!1 &3206960032969948092
 GameObject:
   m_ObjectHideFlags: 0
@@ -2635,6 +2635,56 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2300663513603330306}
     m_Modifications:
+    - target: {fileID: 865303784149570757, guid: 59556821b0be24d428dfced49ee6edd0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -136.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 865303784377361724, guid: 59556821b0be24d428dfced49ee6edd0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -136.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 865303784507970891, guid: 59556821b0be24d428dfced49ee6edd0,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 865303784507970891, guid: 59556821b0be24d428dfced49ee6edd0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -36.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 865303784507970891, guid: 59556821b0be24d428dfced49ee6edd0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -129.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 865303785521662913, guid: 59556821b0be24d428dfced49ee6edd0,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 865303785521662913, guid: 59556821b0be24d428dfced49ee6edd0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -124.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 865303785860110855, guid: 59556821b0be24d428dfced49ee6edd0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -130.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 865303786008777916, guid: 59556821b0be24d428dfced49ee6edd0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -130.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 865303786122768198, guid: 59556821b0be24d428dfced49ee6edd0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.7
+      objectReference: {fileID: 0}
     - target: {fileID: 3206981064666531231, guid: 59556821b0be24d428dfced49ee6edd0,
         type: 3}
       propertyPath: m_RootOrder
