@@ -75,8 +75,10 @@
     <Compile Include="Assets\Scripts\UI&amp;LevelScripts\AreaValues.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scripts\EnemyScripts\EnemyAttack.cs" />
+    <Compile Include="Assets\Scripts\UI&amp;LevelScripts\SetDifficultyText.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\UI&amp;LevelScripts\HealthBarUI.cs" />
+    <Compile Include="Assets\Scripts\UI&amp;LevelScripts\SetSuccessfulText.cs" />
     <Compile Include="Assets\Scripts\EnemyScripts\EnemySpawnDifficulty\SpawnEnemyDifficultyA5Left.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\NoiseBarUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
@@ -129,7 +131,9 @@
     <Compile Include="Assets\Scripts\UI&amp;LevelScripts\SeeThoughSync.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerMovement.cs" />
-    <Compile Include="Assets\Scripts\UI&amp;LevelScripts\SetDifficultyText.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\EnemySpawnDifficulty\SpawnEnemyDifficulty.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\EnemySpawnDifficulty\SpawnEnemySpot.cs" />
+    <Compile Include="Assets\SetAmmoText.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

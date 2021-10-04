@@ -7,7 +7,7 @@ public class CameraFollow : MonoBehaviour
     GameObject player;
     Vector3 cameraOffset;
     private float smoothSpeed = 0.05f;
-    private float sensitivity = 1.0f;
+    private float sensitivity = 2.0f;
 
     // Start is called before the first frame update
     void Start()
