@@ -55,16 +55,14 @@
   <ItemGroup>
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\Scripts\UI&amp;LevelScripts\LevelGenerate.cs" />
-    <Compile Include="Assets\Scripts\EnemyScripts\EnemySpawnDifficulty\SpawnEnemyDifficultyA1.cs" />
     <Compile Include="Assets\LevelGenerator\Scripts\Exits.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
-    <Compile Include="Assets\Scripts\EnemyScripts\EnemySpawnDifficulty\SpawnEnemyDifficultyA3.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\LevelGenerator\Scripts\Helpers\RandomService.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\SpawnEnemyDifficulty.cs" />
     <Compile Include="Assets\LevelGenerator\Scripts\Helpers\ExtensionMethods.cs" />
-    <Compile Include="Assets\Scripts\EnemyScripts\EnemySpawnDifficulty\SpawnEnemyDifficultyA2.cs" />
     <Compile Include="Assets\LevelGenerator\Scripts\Structure\TagRule.cs" />
     <Compile Include="Assets\LevelGenerator\Scripts\Structure\WeightedList.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
@@ -79,27 +77,26 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\UI&amp;LevelScripts\HealthBarUI.cs" />
     <Compile Include="Assets\Scripts\UI&amp;LevelScripts\SetSuccessfulText.cs" />
-    <Compile Include="Assets\Scripts\EnemyScripts\EnemySpawnDifficulty\SpawnEnemyDifficultyA5Left.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\NoiseBarUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\ItemScipts\ItemPopup.cs" />
     <Compile Include="Assets\Scripts\ItemScipts\ItemScript.cs" />
-    <Compile Include="Assets\Scripts\EnemyScripts\EnemySpawnDifficulty\SpawnEnemyDifficultyA4.cs" />
+    <Compile Include="Assets\SetAmmoText.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\CameraController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\LevelGenerator\Scripts\Section.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
-    <Compile Include="Assets\Scripts\EnemyScripts\EnemySpawnDifficulty\SpawnEnemyDifficultyA5Right.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\LevelGenerator\Scripts\Bounds.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\EnemyScripts\BeeEyeMovement.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\SpawnEnemySpot.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerNoise.cs" />
     <Compile Include="Assets\LevelGenerator\Scripts\LevelGenerator.cs" />
@@ -131,9 +128,6 @@
     <Compile Include="Assets\Scripts\UI&amp;LevelScripts\SeeThoughSync.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerMovement.cs" />
-    <Compile Include="Assets\Scripts\EnemyScripts\EnemySpawnDifficulty\SpawnEnemyDifficulty.cs" />
-    <Compile Include="Assets\Scripts\EnemyScripts\EnemySpawnDifficulty\SpawnEnemySpot.cs" />
-    <Compile Include="Assets\SetAmmoText.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

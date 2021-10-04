@@ -2316,7 +2316,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3983202868819866482}
   - component: {fileID: 7491256230078280913}
-  - component: {fileID: 6492746580938021155}
   - component: {fileID: 7393151364745050831}
   m_Layer: 10
   m_Name: BaseFloorExtend
@@ -2446,25 +2445,6 @@ MonoBehaviour:
   length: 54
   entranceDist: -8.5
   exitDist: -34.5
---- !u!114 &6492746580938021155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1504182769494156018}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c708782486e97184eb4399c2301eaf1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  basicBeeEnemy: {fileID: 1935677450405638005, guid: 2b0a86eb4fd237c4280597832bd12e07,
-    type: 3}
-  saxBeeEnemy: {fileID: 1935677450405638005, guid: df88252895f94c349a7488a244ac2faa,
-    type: 3}
-  sunEnemy: {fileID: 5306030494734051544, guid: a5ebb5f8ed5ccc74696dfa3a44d9fa38,
-    type: 3}
-  parentArea: {fileID: 1504182769494156018}
 --- !u!114 &7393151364745050831
 MonoBehaviour:
   m_ObjectHideFlags: 0
