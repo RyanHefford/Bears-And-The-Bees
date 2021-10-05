@@ -10,7 +10,7 @@ public class SetAmmoText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (PlayerPrefs.GetInt("CurrAmmoAmount").Equals(default))
+        if (PlayerPrefs.GetInt("CurrAmmoAmount") == 0)
         {
             PlayerPrefs.SetInt("CurrAmmoAmount", 0);
         }

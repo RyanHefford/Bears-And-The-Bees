@@ -21,7 +21,7 @@ public class FinishGame : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (PlayerPrefs.GetInt("SuccessfulRuns").Equals(default))
+            if (PlayerPrefs.GetInt("SuccessfulRuns") == 0)
             {
                 PlayerPrefs.SetInt("SuccessfulRuns", 0);
             }

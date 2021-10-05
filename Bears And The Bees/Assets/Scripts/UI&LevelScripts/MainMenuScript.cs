@@ -8,7 +8,10 @@ public class MainMenuScript : MonoBehaviour
     public void LoadGame()
     {
         GameObject.FindGameObjectWithTag("MenuMusic").GetComponent<PlayMenuMusic>().StopMusic();
-        if (PlayerPrefs.GetString("DifficultyText").Equals(default))
+
+        if (!PlayerPrefs.GetString("DifficultyText").Equals("Easy") ||
+            !PlayerPrefs.GetString("DifficultyText").Equals("Medium") ||
+            !PlayerPrefs.GetString("DifficultyText").Equals("Hard"))
         {
             PlayerPrefs.SetInt("Difficulty", 2);
             PlayerPrefs.SetString("DifficultyText", "Easy");

@@ -23,7 +23,7 @@ public class LevelGenerate : MonoBehaviour
         transformPosX = transform.position.x;
         transformPosY = transform.position.y;
         transformPosZ = transform.position.z;
-        if (PlayerPrefs.GetInt("Difficulty") == default)
+        if (PlayerPrefs.GetInt("Difficulty") == 0)
         {
             maxAreas = 2;
         }
