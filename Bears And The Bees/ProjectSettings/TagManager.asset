@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - HoneyBottle
   - PauseMenu
+  - MenuMusic
   layers:
   - Default
   - TransparentFX

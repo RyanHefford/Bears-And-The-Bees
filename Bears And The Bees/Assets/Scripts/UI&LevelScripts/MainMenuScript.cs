@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
-
     public void LoadGame()
     {
+        GameObject.FindGameObjectWithTag("MenuMusic").GetComponent<PlayMenuMusic>().StopMusic();
         if (PlayerPrefs.GetString("DifficultyText").Equals(default))
         {
             PlayerPrefs.SetInt("Difficulty", 2);
@@ -24,12 +24,14 @@ public class MainMenuScript : MonoBehaviour
 
     public void LoadHowToPlay()
     {
+        GameObject.FindGameObjectWithTag("MenuMusic").GetComponent<PlayMenuMusic>().PlayMusic();
         SceneManager.LoadScene("HowToPlayScene");
         PlayerPrefs.SetString("PreviousScene", SceneManager.GetActiveScene().name);
     }
 
     public void LoadMainMenu()
     {
+        GameObject.FindGameObjectWithTag("MenuMusic").GetComponent<PlayMenuMusic>().PlayMusic();
         Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene("MenuSceneTemp");
     }
@@ -50,6 +52,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void LoadSettingsScene()
     {
+        GameObject.FindGameObjectWithTag("MenuMusic").GetComponent<PlayMenuMusic>().PlayMusic();
         SceneManager.LoadScene("SettingsScene");
         PlayerPrefs.SetString("PreviousScene", SceneManager.GetActiveScene().name);
     }
