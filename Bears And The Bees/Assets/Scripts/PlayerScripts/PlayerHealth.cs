@@ -6,7 +6,7 @@ public class PlayerHealth : MonoBehaviour
 {
     private int currentHealth;
     private HealthBarUI healthBar;
-    public int maxHealth = 10;
+    public int maxHealth = 4;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +27,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene("NoFinishScene");
         }
 

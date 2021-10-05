@@ -202,6 +202,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chicken
       objectReference: {fileID: 0}
+    - target: {fileID: 1975262510901776773, guid: a0ce4978ded73664b8d4633c139fdc33,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7c8c2aa4fc427a944bde346a4118ad27, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0ce4978ded73664b8d4633c139fdc33, type: 3}
 --- !u!4 &1266449543386868499 stripped

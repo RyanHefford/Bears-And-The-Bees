@@ -19,6 +19,7 @@ public class EnemyMovement : MonoBehaviour
         navAgent = GetComponent<NavMeshAgent>();
         parentPosition = transform.parent.position;
         curPatrolPoint = 0;
+        navAgent.speed = PlayerPrefs.GetFloat("EnemySpeed");
         GoToNextPoint();
     }
 

@@ -6,9 +6,9 @@ public class EnemyAttack : MonoBehaviour
 {
     private GameObject player;
     private float attackCooldown = 2f;
-    public float attackRange = 3f;
+    private float attackRange = 2.5f;
     private float lastAttack = 0;
-    public int attackDamage = 2;
+    private int attackDamage = 1;
     //bee animation
     private Animator animator;
 
@@ -17,6 +17,9 @@ public class EnemyAttack : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         animator = GetComponent<Animator>();
+        attackDamage = PlayerPrefs.GetInt("EnemyAttack");
+        attackCooldown = PlayerPrefs.GetFloat("AttackCD");
+        attackRange = PlayerPrefs.GetFloat("AttackRange");
     }
 
 

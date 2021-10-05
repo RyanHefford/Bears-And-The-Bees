@@ -31,7 +31,7 @@ public class EnemyVision : MonoBehaviour
     private float timeSeenPlayer = 0;
     public float maxSearchTime = 3f;
     private float searchTime = 0f;
-    public float secUntilChase = 2f;
+    public float secUntilChase = 1.5f;
     private Vector3 lastSeenPosition;
     private PlayerMovement playerMovement;
 
@@ -60,7 +60,7 @@ public class EnemyVision : MonoBehaviour
         audioClips = Resources.LoadAll<AudioClip>("Sound/BeeSpotted");
         meshRenderer = GetComponentInChildren<MeshRenderer>();
 
-
+        secUntilChase = PlayerPrefs.GetFloat("SecTillChase");
     }
 
     // Update is called once per frame

@@ -37,7 +37,7 @@ public class ItemHandle : MonoBehaviour
             //chicken
             case 2:
                 playerMove.playerSpeed -= 1.5f;
-                playerHealth.ChangeMaxHealth(5);
+                playerHealth.ChangeMaxHealth(2);
                 break;
         }
 

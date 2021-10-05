@@ -83,7 +83,7 @@
     <Compile Include="Assets\Scripts\PlayerScripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\ItemScipts\ItemPopup.cs" />
     <Compile Include="Assets\Scripts\ItemScipts\ItemScript.cs" />
-    <Compile Include="Assets\SetAmmoText.cs" />
+    <Compile Include="Assets\Scripts\PlayerScripts\SetAmmoText.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\CameraController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
