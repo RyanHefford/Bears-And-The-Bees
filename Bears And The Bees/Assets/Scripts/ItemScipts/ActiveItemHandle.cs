@@ -37,6 +37,9 @@ public class ActiveItemHandle : MonoBehaviour
         switch (currItem)
         {
             case ITEM.SMOKE_BOMB:
+                SpeedStatus speedStatus = ScriptableObject.CreateInstance<SpeedStatus>();
+                speedStatus.Init(2f, 0.15f);
+                playerStatusHandle.AddStatus(speedStatus);
                 ResetItem();
                 break;
             case ITEM.ROSE:
@@ -44,7 +47,9 @@ public class ActiveItemHandle : MonoBehaviour
                 break;
             case ITEM.LUNCH_BOX:
                 playerHealth.Heal(6);
-                
+                SlowStatus slowStatus = ScriptableObject.CreateInstance<SlowStatus>();
+                slowStatus.Init(5f, 0.4f);
+                playerStatusHandle.AddStatus(slowStatus);
                 ResetItem();
                 break;
         }

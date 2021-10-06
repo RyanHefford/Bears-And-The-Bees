@@ -26,12 +26,12 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private bool moving = false;
     private bool crouching = false;
-    //public float playerSpeed = 8.0f;
     private float turnSmoothTime = 0.1f;
     private float turnSmoothVelocity;
-    //public float jumpSpeed = 8.0f;
-    //public float visibility = 0.0f;
     private float gravity = 20.0f;
+
+    //status effects
+    StatusEffectHandler statusHandler;
 
     public PlayerStats baseStats = new PlayerStats(8.0f, 8.0f, 0.0f, 0.4f);
     public PlayerStats currentStats;
@@ -45,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
         noise = GetComponent<PlayerNoise>();
+        statusHandler = GetComponent<StatusEffectHandler>();
         PlayerPrefs.SetInt("Paused", 0);
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
         pauseMenu.SetActive(false);
@@ -55,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
     {
         //reset stats then apply any stat effects
         currentStats = baseStats;
-        
+        currentStats = statusHandler.ApplyStatusEffects(currentStats);
 
         // Check if player pressed other keys
         KeyControls();
@@ -101,7 +102,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         direction += jumpVelocity;
-        
         //Move Player
         controller.Move(direction * Time.deltaTime);
     }
@@ -113,9 +113,9 @@ public class PlayerMovement : MonoBehaviour
             crouching = !crouching;
             animator.SetBool("crouching", crouching);
             if (crouching)
-                baseStats.moveSpeed *= currentStats.crouchChange;
+                baseStats.moveSpeed *= baseStats.crouchChange;
             else
-                baseStats.moveSpeed /= currentStats.crouchChange;
+                baseStats.moveSpeed /= baseStats.crouchChange;
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {

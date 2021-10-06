@@ -1,24 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static PlayerMovement;
 
 public class StatusEffectHandler : MonoBehaviour
 {
 
-    private List<StatusEffect> statusList;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private List<StatusEffect> statusList = new List<StatusEffect>();
 
-    // Update is called once per frame
-    void Update()
+    public PlayerStats ApplyStatusEffects(PlayerStats initalStats)
     {
-        foreach (StatusEffect statusEffect in statusList)
+        PlayerStats result = initalStats;
+
+
+        foreach (StatusEffect currStatusEffect in statusList.ToArray())
         {
-            statusEffect.ApplyEffect();
+            currStatusEffect.UpdateTimer();
+            if (currStatusEffect.durationLeft > 0)
+            {
+                result = currStatusEffect.ApplyEffect(result);
+            }
+            else
+            {
+                statusList.Remove(currStatusEffect);
+            }
         }
+
+        return result;
     }
 
     public void AddStatus(StatusEffect effect)
@@ -29,45 +37,66 @@ public class StatusEffectHandler : MonoBehaviour
 
 
 //--------------------------------------------------
-
-public abstract class StatusEffect : MonoBehaviour
+public abstract class StatusEffect : ScriptableObject
 {
     public float durationLeft;
     public GameObject player;
-    public StatusEffect(float _duration)
+    public void Init(float _duration)
     {
         durationLeft = _duration;
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    private void Update()
+    public void UpdateTimer()
     {
         durationLeft -= Time.deltaTime;
     }
 
-    public abstract void ApplyEffect();
+    public abstract PlayerStats ApplyEffect(PlayerStats playerStats);
 }
 
 public class SlowStatus : StatusEffect
 {
     private float slowPercentage;
-    public SlowStatus(float _duration, float _slowPercentage) : base(_duration)
+    public void Init(float _duration, float _slowPercentage)
     {
+        durationLeft = _duration;
+        player = GameObject.FindGameObjectWithTag("Player");
         slowPercentage = _slowPercentage;
     }
 
-    public override void ApplyEffect()
+    public override PlayerStats ApplyEffect(PlayerStats playerStats)
     {
-        player.GetComponent<PlayerMovement>().currentStats.moveSpeed *= slowPercentage;
+        PlayerStats result = playerStats;
+        result.moveSpeed *= slowPercentage;
+        return result;
+    }
+}
+
+public class SpeedStatus : StatusEffect
+{
+    private float speedUpPercentage;
+    public void Init(float _duration, float _speedUpPercentage)
+    {
+        durationLeft = _duration;
+        player = GameObject.FindGameObjectWithTag("Player");
+        speedUpPercentage = _speedUpPercentage;
+    }
+
+    public override PlayerStats ApplyEffect(PlayerStats playerStats)
+    {
+        PlayerStats result = playerStats;
+        result.moveSpeed *= 1 + speedUpPercentage;
+        return result;
     }
 }
 
 public class InvisableStatus : StatusEffect
 {
-    public InvisableStatus(float _duration) : base(_duration) { }
 
-    public override void ApplyEffect()
+    public override PlayerStats ApplyEffect(PlayerStats playerStats)
     {
         throw new System.NotImplementedException();
     }
 }
+
