@@ -72,7 +72,7 @@ public class EnemyVision : MonoBehaviour
             //Logic for changing states
             if (canSeePlayer)
             {
-                if (timeSeenPlayer >= secUntilChase - playerMovement.visibility || searchTime > 0)
+                if (timeSeenPlayer >= secUntilChase - playerMovement.currentStats.visibility || searchTime > 0)
                 {
                     currState = STATE.CHASING;
                     searchTime = maxSearchTime;

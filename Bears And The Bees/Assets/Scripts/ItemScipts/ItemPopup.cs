@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static ItemList;
 
 public class ItemPopup : MonoBehaviour
 {
@@ -10,12 +11,6 @@ public class ItemPopup : MonoBehaviour
     private Text itemDescription;
 
     private Sprite[] iconList;
-
-    private string[] descriptionList = { 
-        "New Vans!!\n\nJump Height Way Up!\nMove Speed Slightly Up!",
-        "Fluorescent Belt!!\n\nMove Speed Way Up!!\nVisibility Up!",
-        "A Full Roast Chicken!?!!\n\nHealth Up!!\nMove Speed Slightly Down!"
-    };
 
 
     // Start is called before the first frame update
@@ -33,16 +28,11 @@ public class ItemPopup : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-    public void ChangeItem(int id)
+    public void ChangeItem(ITEM item)
     {
-        itemIcon.sprite = iconList[id];
-        itemDescription.text = descriptionList[id];
+        itemIcon.sprite = iconList[(uint)item];
+        itemDescription.text = ItemList.GetDescription(item);
         
         StartCoroutine(FadeDelay());
 

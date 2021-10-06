@@ -5,7 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private const float CROUCHING_CHANGE = 2.0f;
+    public struct PlayerStats
+    {
+        public float moveSpeed, jumpSpeed, visibility, crouchChange;
+
+        public PlayerStats(float _moveSpeed, float _jumpSpeed, float _visibility, float _crouchChange)
+        {
+            moveSpeed = _moveSpeed;
+            jumpSpeed = _jumpSpeed;
+            visibility = _visibility;
+            crouchChange = _crouchChange;
+        }
+    }
+
+    //private const float CROUCHING_CHANGE = 2.0f;
 
     private PlayerNoise noise;
 
@@ -13,12 +26,16 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private bool moving = false;
     private bool crouching = false;
-    public float playerSpeed = 8.0f;
+    //public float playerSpeed = 8.0f;
     private float turnSmoothTime = 0.1f;
     private float turnSmoothVelocity;
-    public float jumpSpeed = 8.0f;
-    public float visibility = 0.0f;
+    //public float jumpSpeed = 8.0f;
+    //public float visibility = 0.0f;
     private float gravity = 20.0f;
+
+    public PlayerStats baseStats = new PlayerStats(8.0f, 8.0f, 0.0f, 0.4f);
+    public PlayerStats currentStats;
+
     private Vector3 jumpVelocity = Vector3.zero;
     private GameObject pauseMenu;
 
@@ -36,6 +53,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        //reset stats then apply any stat effects
+        currentStats = baseStats;
+        
+
         // Check if player pressed other keys
         KeyControls();
     }
@@ -60,8 +81,8 @@ public class PlayerMovement : MonoBehaviour
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
-            direction *= playerSpeed;
-            noise.CalculateNoise(playerSpeed);
+            direction *= currentStats.moveSpeed;
+            noise.CalculateNoise(currentStats.moveSpeed);
         } else if (moving)
         {
             noise.CalculateNoise(0.0f);
@@ -72,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
         //check for player jump
         if (controller.isGrounded && Input.GetButton("Jump"))
         {
-            jumpVelocity.y = jumpSpeed;
+            jumpVelocity.y = currentStats.jumpSpeed;
         }
         if (!controller.isGrounded)
         {
@@ -92,9 +113,9 @@ public class PlayerMovement : MonoBehaviour
             crouching = !crouching;
             animator.SetBool("crouching", crouching);
             if (crouching)
-                playerSpeed /= CROUCHING_CHANGE;
+                baseStats.moveSpeed *= currentStats.crouchChange;
             else
-                playerSpeed *= CROUCHING_CHANGE;
+                baseStats.moveSpeed /= currentStats.crouchChange;
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -114,4 +135,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+
+    
 }
