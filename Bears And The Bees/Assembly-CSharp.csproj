@@ -132,6 +132,8 @@
     <Compile Include="Assets\Scripts\UI&amp;LevelScripts\SeeThoughSync.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\UI&amp;LevelScripts\StatusEffectIcons.cs" />
+    <Compile Include="Assets\Scripts\UI&amp;LevelScripts\IconScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

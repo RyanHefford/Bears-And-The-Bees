@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class EnemyVision : MonoBehaviour
 {
-    public enum STATE { PASSIVE, ALERT, CHASING, SEARCHING }
+    public enum STATE { PASSIVE, ALERT, CHASING, SEARCHING, STUNNED }
 
     private STATE currState = STATE.PASSIVE;
 
@@ -70,12 +70,15 @@ public class EnemyVision : MonoBehaviour
         if (!isAlert)
         {
             //Logic for changing states
-            if (canSeePlayer)
+            if (canSeePlayer && !playerMovement.currentStats.isInvisible)
             {
-                if (timeSeenPlayer >= secUntilChase - playerMovement.currentStats.visibility || searchTime > 0)
+                if ((timeSeenPlayer >= secUntilChase - playerMovement.currentStats.visibility || searchTime > 0))
                 {
                     currState = STATE.CHASING;
                     searchTime = maxSearchTime;
+                    SlowStatus slowStatus = ScriptableObject.CreateInstance<SlowStatus>();
+                    slowStatus.Init(2f, 0.15f);
+                    playerMovement.GetComponent<StatusEffectHandler>().AddStatus(slowStatus);
                 }
                 else
                 {
@@ -205,7 +208,7 @@ public class EnemyVision : MonoBehaviour
         RaycastHit hit;
 
         //check if hit player
-        if (Physics.Raycast(transform.position, dir, out hit, viewRadius, targetMask))
+        if (Physics.Raycast(transform.position, dir, out hit, viewRadius, targetMask) && !playerMovement.currentStats.isInvisible)
         {
             Vector3 currPlayerPoint = hit.point;
             //check if wall is in the way

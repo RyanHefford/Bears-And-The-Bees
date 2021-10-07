@@ -49,10 +49,12 @@ public class SunEnemyVision : MonoBehaviour
         if (isFlaring || lastSeenPlayer + alertTime > Time.time)
         {
             //Check if player is visible
-            if (CheckCanSeePlayer())
+            if (CheckCanSeePlayer() && !player.GetComponent<PlayerMovement>().currentStats.isInvisible)
             {
                 AlertAllEnemies();
-
+                SlowStatus slowStatus = ScriptableObject.CreateInstance<SlowStatus>();
+                slowStatus.Init(2f, 0.15f);
+                player.GetComponent<StatusEffectHandler>().AddStatus(slowStatus);
                 lastFlareTime = Time.time;
                 lastSeenPlayer = Time.time;
                 playerVisible = true;

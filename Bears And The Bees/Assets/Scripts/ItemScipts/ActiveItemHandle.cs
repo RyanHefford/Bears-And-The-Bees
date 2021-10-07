@@ -40,9 +40,22 @@ public class ActiveItemHandle : MonoBehaviour
                 SpeedStatus speedStatus = ScriptableObject.CreateInstance<SpeedStatus>();
                 speedStatus.Init(2f, 0.15f);
                 playerStatusHandle.AddStatus(speedStatus);
+
+                InvisibleStatus invisibleStatus = ScriptableObject.CreateInstance<InvisibleStatus>();
+                invisibleStatus.Init(5f);
+                playerStatusHandle.AddStatus(invisibleStatus);
                 ResetItem();
                 break;
             case ITEM.ROSE:
+                SpeedStatus s = ScriptableObject.CreateInstance<SpeedStatus>();
+                s.Init(12f, 0.15f);
+                playerStatusHandle.AddStatus(s);
+                SlowStatus b = ScriptableObject.CreateInstance<SlowStatus>();
+                b.Init(10f, 0.45f);
+                playerStatusHandle.AddStatus(b);
+                InvisibleStatus r = ScriptableObject.CreateInstance<InvisibleStatus>();
+                r.Init(6f);
+                playerStatusHandle.AddStatus(r);
                 ResetItem();
                 break;
             case ITEM.LUNCH_BOX:

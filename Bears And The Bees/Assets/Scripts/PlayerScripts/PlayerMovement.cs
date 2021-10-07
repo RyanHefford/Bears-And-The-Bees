@@ -8,13 +8,15 @@ public class PlayerMovement : MonoBehaviour
     public struct PlayerStats
     {
         public float moveSpeed, jumpSpeed, visibility, crouchChange;
+        public bool isInvisible;
 
-        public PlayerStats(float _moveSpeed, float _jumpSpeed, float _visibility, float _crouchChange)
+        public PlayerStats(float _moveSpeed, float _jumpSpeed, float _visibility, float _crouchChange, bool _isInvisible)
         {
             moveSpeed = _moveSpeed;
             jumpSpeed = _jumpSpeed;
             visibility = _visibility;
             crouchChange = _crouchChange;
+            isInvisible = _isInvisible;
         }
     }
 
@@ -31,9 +33,12 @@ public class PlayerMovement : MonoBehaviour
     private float gravity = 20.0f;
 
     //status effects
-    StatusEffectHandler statusHandler;
+    private StatusEffectHandler statusHandler;
+    private SkinnedMeshRenderer skinnedRenderer;
+    public Material defaultMat;
+    public Material invisibleMat;
 
-    public PlayerStats baseStats = new PlayerStats(8.0f, 8.0f, 0.0f, 0.4f);
+    public PlayerStats baseStats = new PlayerStats(8.0f, 8.0f, 0.0f, 0.4f, false);
     public PlayerStats currentStats;
 
     private Vector3 jumpVelocity = Vector3.zero;
@@ -46,6 +51,8 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         noise = GetComponent<PlayerNoise>();
         statusHandler = GetComponent<StatusEffectHandler>();
+        skinnedRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+
         PlayerPrefs.SetInt("Paused", 0);
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
         pauseMenu.SetActive(false);
@@ -54,9 +61,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+
         //reset stats then apply any stat effects
         currentStats = baseStats;
-        currentStats = statusHandler.ApplyStatusEffects(currentStats);
+        currentStats = statusHandler.ApplyStatusEffects(baseStats);
+
+
+        if (currentStats.isInvisible)
+        {
+            skinnedRenderer.material = invisibleMat;
+        }
+        else
+        {
+            skinnedRenderer.material = defaultMat;
+        }
 
         // Check if player pressed other keys
         KeyControls();

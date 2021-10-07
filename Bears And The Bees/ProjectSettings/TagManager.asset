@@ -11,6 +11,7 @@ TagManager:
   - PauseMenu
   - MenuMusic
   - ActiveItem
+  - StatusIcon
   layers:
   - Default
   - TransparentFX
