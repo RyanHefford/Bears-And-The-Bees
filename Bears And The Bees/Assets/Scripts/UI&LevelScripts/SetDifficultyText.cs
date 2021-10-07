@@ -11,12 +11,13 @@ public class SetDifficultyText : MonoBehaviour
     {
         if (PlayerPrefs.GetString("DifficultyText").Equals(""))
         {
-            PlayerPrefs.SetInt("Difficulty", 2);
-            PlayerPrefs.SetString("DifficultyText", "Easy");
-            PlayerPrefs.SetInt("EnemyAttack", 1);
+            PlayerPrefs.SetInt("Difficulty", 4);
+            PlayerPrefs.SetString("DifficultyText", "Medium");
+            PlayerPrefs.SetInt("EnemyAttack", 2);
             PlayerPrefs.SetFloat("SecTillChase", 1.5f);
-            PlayerPrefs.SetFloat("AttackRange", 2.5f);
-            PlayerPrefs.SetFloat("EnemySpeed", 4.0f);
+            PlayerPrefs.SetFloat("AttackCD", 1.5f);
+            PlayerPrefs.SetFloat("AttackRange", 3.0f);
+            PlayerPrefs.SetFloat("EnemySpeed", 5.0f);
         }
     }
 
