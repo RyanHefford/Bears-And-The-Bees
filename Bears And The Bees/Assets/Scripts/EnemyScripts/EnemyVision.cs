@@ -16,6 +16,8 @@ public class EnemyVision : MonoBehaviour
     public float meshResolution = 0.1f;
     public float alertPauseDuration = 1f;
     public bool isAlert = false;
+    private float stunDuration;
+    private float stunStart;
 
     //audio
     private AudioSource audioSource;
@@ -67,7 +69,7 @@ public class EnemyVision : MonoBehaviour
     void Update()
     {
         
-        if (!isAlert)
+        if (!isAlert && currState != STATE.STUNNED)
         {
             //Logic for changing states
             if (canSeePlayer && !playerMovement.currentStats.isInvisible)
@@ -112,12 +114,16 @@ public class EnemyVision : MonoBehaviour
             updateColor();
             eyeMovement.UpdatePosition(currState != STATE.PASSIVE && currState != STATE.ALERT);
         }
+        else if(currState == STATE.STUNNED && Time.time >= stunStart + stunDuration)
+        {
+            currState = STATE.ALERT;
+        }
     }
 
     private void LateUpdate()
     {
         canSeePlayer = false;
-        DrawFieldOfView();
+        if (currState != STATE.STUNNED) { DrawFieldOfView(); }
     }
 
     public STATE getState()
@@ -274,6 +280,16 @@ public class EnemyVision : MonoBehaviour
         lastSeenPosition = spottedPosition;
     }
 
+    public void StunEnemy(float duration)
+    {
+        currState = STATE.STUNNED;
+        stunDuration = duration;
+        stunStart = Time.time;
+
+        viewMesh.Clear();
+        viewMesh.RecalculateNormals();
+
+    }
     private void updateColor()
     {
         switch (currState)

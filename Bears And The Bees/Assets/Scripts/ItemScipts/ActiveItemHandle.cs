@@ -6,13 +6,14 @@ using static ItemList;
 
 public class ActiveItemHandle : MonoBehaviour
 {
-    private ITEM currItem = ITEM.ROSE;
+    private ITEM currItem = ITEM.SMOKE_BOMB;
     public GameObject[] activeCollection;
     private PlayerHealth playerHealth;
     private Sprite[] iconList;
     private StatusEffectHandler playerStatusHandle;
     private Image activeSprite;
     public GameObject roseThrowable;
+    private GameObject[] enemies;
 
     // Start is called before the first frame update
     void Start()
@@ -20,8 +21,8 @@ public class ActiveItemHandle : MonoBehaviour
         playerStatusHandle = GetComponent<StatusEffectHandler>();
         playerHealth = GetComponent<PlayerHealth>();
         activeSprite = GameObject.FindGameObjectWithTag("ActiveItem").GetComponent<Image>();
-        //activeSprite.canvasRenderer.SetAlpha(0);
         iconList = Resources.LoadAll<Sprite>("ItemImages/Items");
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     // Update is called once per frame
@@ -46,6 +47,9 @@ public class ActiveItemHandle : MonoBehaviour
                 InvisibleStatus invisibleStatus = ScriptableObject.CreateInstance<InvisibleStatus>();
                 invisibleStatus.Init(5f);
                 playerStatusHandle.AddStatus(invisibleStatus);
+
+                HandleEnemyStun(50f, 2f);
+
                 ResetItem();
                 break;
             case ITEM.ROSE:
@@ -75,6 +79,22 @@ public class ActiveItemHandle : MonoBehaviour
         currItem = itemId;
         activeSprite.sprite = iconList[(uint)itemId];
         activeSprite.canvasRenderer.SetAlpha(255f);
+    }
+
+    private void HandleEnemyStun(float maxAlertDistance, float stunDuration)
+    {
+        if (enemies.Length == 0) { enemies = GameObject.FindGameObjectsWithTag("Enemy"); }
+        foreach (GameObject enemy in enemies)
+        {
+            // check if enemy is within alert distance
+            if (Vector3.Distance(transform.position, enemy.transform.position) <= maxAlertDistance)
+            {
+                if (enemy.GetComponentInChildren<EnemyVision>() != null)
+                {
+                    enemy.GetComponentInChildren<EnemyVision>().StunEnemy(stunDuration);
+                }
+            }
+        }
     }
 
     public void SwapActive(Transform oldItemLocation)

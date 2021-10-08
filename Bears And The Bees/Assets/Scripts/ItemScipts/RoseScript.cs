@@ -9,7 +9,6 @@ public class RoseScript : MonoBehaviour
     private float startTime;
     private GameObject[] enemies;
     private float maxAlertDistance = 40f;
-    private GameObject player;
 
     private bool startLure = false;
     private ParticleSystem[] particleSystems;
@@ -19,7 +18,6 @@ public class RoseScript : MonoBehaviour
     {
         startTime = Time.time;
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        player = GameObject.FindGameObjectWithTag("Player");
 
         particleSystems = GetComponentsInChildren<ParticleSystem>();
     }

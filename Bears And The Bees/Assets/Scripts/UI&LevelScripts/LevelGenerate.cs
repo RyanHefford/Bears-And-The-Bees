@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class LevelGenerate : MonoBehaviour
     public GameObject player;
     public GameObject honeyBottle;
     public GameObject newCamera;
+    public GameObject cinemachineCamera;
     public GameObject[] areas;
 
     private float numAreas;
@@ -99,8 +101,11 @@ public class LevelGenerate : MonoBehaviour
     {
         Vector3 position = new Vector3(currAreaValues.GetEntranceDist() - 3.5f + transformPosX, 1f + transformPosY, 3f - transformPosZ);
 
-        Instantiate(player, position, Quaternion.identity);
+        GameObject tempPlayer = Instantiate(player, position, Quaternion.identity);
         GameObject followCamera = Instantiate(newCamera, position, Quaternion.identity);
         followCamera.transform.Rotate(45f, 135f, 0f);
+        GameObject tempVirtualCam = Instantiate(cinemachineCamera);
+        tempVirtualCam.GetComponent<CinemachineFreeLook>().m_Follow = tempPlayer.transform;
+        tempVirtualCam.GetComponent<CinemachineFreeLook>().m_LookAt = tempPlayer.transform;
     }
 }

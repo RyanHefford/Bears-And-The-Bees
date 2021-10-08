@@ -151,7 +151,7 @@ public class SpeedStatus : StatusEffect
 public class InvisibleStatus : StatusEffect
 {
 
-    public void Init(float _duration)
+    public new void Init(float _duration)
     {
         durationLeft = _duration;
         player = GameObject.FindGameObjectWithTag("Player");

@@ -54,6 +54,11 @@ public class EnemyMovement : MonoBehaviour
                 navAgent.isStopped = false;
                 break;
 
+            case EnemyVision.STATE.STUNNED:
+                navAgent.autoBraking = true;
+                navAgent.isStopped = true;
+                break;
+
             default:
                 navAgent.isStopped = true;
                 break;
