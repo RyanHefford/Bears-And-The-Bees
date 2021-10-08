@@ -6,12 +6,14 @@ using static ItemList;
 
 public class ActiveItemHandle : MonoBehaviour
 {
-    public ITEM currItem = 0;
+    private ITEM currItem = ITEM.ROSE;
     public GameObject[] activeCollection;
     private PlayerHealth playerHealth;
     private Sprite[] iconList;
     private StatusEffectHandler playerStatusHandle;
     private Image activeSprite;
+    public GameObject roseThrowable;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,15 +49,9 @@ public class ActiveItemHandle : MonoBehaviour
                 ResetItem();
                 break;
             case ITEM.ROSE:
-                SpeedStatus s = ScriptableObject.CreateInstance<SpeedStatus>();
-                s.Init(12f, 0.15f);
-                playerStatusHandle.AddStatus(s);
-                SlowStatus b = ScriptableObject.CreateInstance<SlowStatus>();
-                b.Init(10f, 0.45f);
-                playerStatusHandle.AddStatus(b);
-                InvisibleStatus r = ScriptableObject.CreateInstance<InvisibleStatus>();
-                r.Init(6f);
-                playerStatusHandle.AddStatus(r);
+                GameObject tempRose = Instantiate<GameObject>(roseThrowable);
+                tempRose.transform.position = transform.position + transform.forward;
+                tempRose.GetComponent<Rigidbody>().AddForce(transform.forward * 800);
                 ResetItem();
                 break;
             case ITEM.LUNCH_BOX:

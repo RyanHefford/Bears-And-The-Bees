@@ -171,6 +171,8 @@ MonoBehaviour:
   - {fileID: 8897082280717594106, guid: de10697db7a6e68408155bd6513b008b, type: 3}
   - {fileID: 8897082280717594106, guid: ac881d72145af6d4d9556498ffbb31b2, type: 3}
   - {fileID: 8897082280717594106, guid: 98c75cca1f4930d4bbc3011a2b9d2f2a, type: 3}
+  roseThrowable: {fileID: 8117572732432722703, guid: 0605edca293d3a0438049cfb2a878a7e,
+    type: 3}
 --- !u!114 &1681305831862578881
 MonoBehaviour:
   m_ObjectHideFlags: 0
