@@ -166,11 +166,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2008ec4a7d265364bb5b1d34e45a7962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currItem: 0
   activeCollection:
   - {fileID: 8897082280717594106, guid: de10697db7a6e68408155bd6513b008b, type: 3}
   - {fileID: 8897082280717594106, guid: ac881d72145af6d4d9556498ffbb31b2, type: 3}
   - {fileID: 8897082280717594106, guid: 98c75cca1f4930d4bbc3011a2b9d2f2a, type: 3}
+  - {fileID: 8897082280717594106, guid: 422660c609bf6a042b51bb851cd5f9bf, type: 3}
+  - {fileID: 8897082280717594106, guid: 817e0503dd88c8245801dbe550890b6c, type: 3}
   roseThrowable: {fileID: 8117572732432722703, guid: 0605edca293d3a0438049cfb2a878a7e,
     type: 3}
 --- !u!114 &1681305831862578881

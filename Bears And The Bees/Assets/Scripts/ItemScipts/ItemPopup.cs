@@ -45,7 +45,7 @@ public class ItemPopup : MonoBehaviour
         itemIcon.CrossFadeAlpha(1, 1, false);
         itemDescription.CrossFadeAlpha(1, 1, false);
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
 
         popupBlock.CrossFadeAlpha(0, 1, false);
         itemIcon.CrossFadeAlpha(0, 1, false);

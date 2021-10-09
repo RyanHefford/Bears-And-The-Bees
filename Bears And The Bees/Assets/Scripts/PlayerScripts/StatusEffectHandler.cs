@@ -22,6 +22,7 @@ public class StatusEffectHandler : MonoBehaviour
 
     private List<StatusEffect> statusList = new List<StatusEffect>();
 
+
     public PlayerStats ApplyStatusEffects(PlayerStats initalStats)
     {
         PlayerStats result = initalStats;
@@ -75,6 +76,8 @@ public class StatusEffectHandler : MonoBehaviour
 }
 
 
+
+//---------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------
 public abstract class StatusEffect : ScriptableObject
 {
@@ -95,6 +98,9 @@ public abstract class StatusEffect : ScriptableObject
 
     public abstract void UpdateEffect(StatusEffect newEffect);
 }
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
 
 public class SlowStatus : StatusEffect
 {
@@ -122,6 +128,9 @@ public class SlowStatus : StatusEffect
     }
 }
 
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
 public class SpeedStatus : StatusEffect
 {
     private float speedUpPercentage;
@@ -148,6 +157,9 @@ public class SpeedStatus : StatusEffect
     }
 }
 
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
 public class InvisibleStatus : StatusEffect
 {
 
@@ -173,3 +185,170 @@ public class InvisibleStatus : StatusEffect
     }
 }
 
+//---------------------------------------------------------------------------------------------------------------------------------
+
+public class JumpUpStatus : StatusEffect
+{
+    private float jumpUpPercent;
+    public void Init(float _duration, float _jumpUpPercent)
+    {
+        durationLeft = _duration;
+        player = GameObject.FindGameObjectWithTag("Player");
+        jumpUpPercent = _jumpUpPercent;
+    }
+
+    public override PlayerStats ApplyEffect(PlayerStats playerStats)
+    {
+        PlayerStats result = playerStats;
+        result.jumpSpeed *= 1 + jumpUpPercent;
+        return result;
+    }
+
+    public override void UpdateEffect(StatusEffect newEffect)
+    {
+        JumpUpStatus update = (JumpUpStatus)newEffect;
+
+        durationLeft = update.durationLeft > durationLeft ? update.durationLeft : durationLeft;
+        jumpUpPercent = update.jumpUpPercent > jumpUpPercent ? update.jumpUpPercent : jumpUpPercent;
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+public class JumpDownStatus : StatusEffect
+{
+    private float jumpDownPercent;
+    public void Init(float _duration, float _jumpDownPercent)
+    {
+        durationLeft = _duration;
+        player = GameObject.FindGameObjectWithTag("Player");
+        jumpDownPercent = _jumpDownPercent;
+    }
+
+    public override PlayerStats ApplyEffect(PlayerStats playerStats)
+    {
+        PlayerStats result = playerStats;
+        result.jumpSpeed *= 1 - jumpDownPercent;
+        return result;
+    }
+
+    public override void UpdateEffect(StatusEffect newEffect)
+    {
+        JumpDownStatus update = (JumpDownStatus)newEffect;
+
+        durationLeft = update.durationLeft > durationLeft ? update.durationLeft : durationLeft;
+        jumpDownPercent = update.jumpDownPercent > jumpDownPercent ? update.jumpDownPercent : jumpDownPercent;
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+public class NoiseUpStatus : StatusEffect
+{
+    private float noiseUpPercent;
+    public void Init(float _duration, float _noiseUpPercent)
+    {
+        durationLeft = _duration;
+        player = GameObject.FindGameObjectWithTag("Player");
+        noiseUpPercent = _noiseUpPercent;
+    }
+
+    public override PlayerStats ApplyEffect(PlayerStats playerStats)
+    {
+        PlayerStats result = playerStats;
+        result.noiseMultiplier *= 1 + noiseUpPercent;
+        return result;
+    }
+
+    public override void UpdateEffect(StatusEffect newEffect)
+    {
+        NoiseUpStatus update = (NoiseUpStatus)newEffect;
+
+        durationLeft = update.durationLeft > durationLeft ? update.durationLeft : durationLeft;
+        noiseUpPercent = update.noiseUpPercent > noiseUpPercent ? update.noiseUpPercent : noiseUpPercent;
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+public class NoiseDownStatus : StatusEffect
+{
+    private float noiseDownPercent;
+    public void Init(float _duration, float _noiseDownPercent)
+    {
+        durationLeft = _duration;
+        player = GameObject.FindGameObjectWithTag("Player");
+        noiseDownPercent = _noiseDownPercent;
+    }
+
+    public override PlayerStats ApplyEffect(PlayerStats playerStats)
+    {
+        PlayerStats result = playerStats;
+        result.noiseMultiplier *= 1 - noiseDownPercent;
+        return result;
+    }
+
+    public override void UpdateEffect(StatusEffect newEffect)
+    {
+        NoiseDownStatus update = (NoiseDownStatus)newEffect;
+
+        durationLeft = update.durationLeft > durationLeft ? update.durationLeft : durationLeft;
+        noiseDownPercent = update.noiseDownPercent > noiseDownPercent ? update.noiseDownPercent : noiseDownPercent;
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+public class StealthUpStatus : StatusEffect
+{
+    private float stealthUpPercent;
+    public void Init(float _duration, float _stealthUpPercent)
+    {
+        durationLeft = _duration;
+        player = GameObject.FindGameObjectWithTag("Player");
+        stealthUpPercent = _stealthUpPercent;
+    }
+
+    public override PlayerStats ApplyEffect(PlayerStats playerStats)
+    {
+        PlayerStats result = playerStats;
+        result.visibility *= 1 - stealthUpPercent;
+        return result;
+    }
+
+    public override void UpdateEffect(StatusEffect newEffect)
+    {
+        StealthUpStatus update = (StealthUpStatus)newEffect;
+
+        durationLeft = update.durationLeft > durationLeft ? update.durationLeft : durationLeft;
+        stealthUpPercent = update.stealthUpPercent > stealthUpPercent ? update.stealthUpPercent : stealthUpPercent;
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+public class StealthDownStatus : StatusEffect
+{
+    private float stealthDownPercent;
+    public void Init(float _duration, float _stealthDownPercent)
+    {
+        durationLeft = _duration;
+        player = GameObject.FindGameObjectWithTag("Player");
+        stealthDownPercent = _stealthDownPercent;
+    }
+
+    public override PlayerStats ApplyEffect(PlayerStats playerStats)
+    {
+        PlayerStats result = playerStats;
+        result.visibility *= 1 + stealthDownPercent;
+        return result;
+    }
+
+    public override void UpdateEffect(StatusEffect newEffect)
+    {
+        StealthDownStatus update = (StealthDownStatus)newEffect;
+
+        durationLeft = update.durationLeft > durationLeft ? update.durationLeft : durationLeft;
+        stealthDownPercent = update.stealthDownPercent > stealthDownPercent ? update.stealthDownPercent : stealthDownPercent;
+    }
+}

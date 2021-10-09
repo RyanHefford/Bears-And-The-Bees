@@ -7,15 +7,16 @@ public class PlayerMovement : MonoBehaviour
 {
     public struct PlayerStats
     {
-        public float moveSpeed, jumpSpeed, visibility, crouchChange;
+        public float moveSpeed, jumpSpeed, visibility, crouchChange, noiseMultiplier;
         public bool isInvisible;
 
-        public PlayerStats(float _moveSpeed, float _jumpSpeed, float _visibility, float _crouchChange, bool _isInvisible)
+        public PlayerStats(float _moveSpeed, float _jumpSpeed, float _visibility, float _crouchChange, float _noiseMultiplier, bool _isInvisible)
         {
             moveSpeed = _moveSpeed;
             jumpSpeed = _jumpSpeed;
             visibility = _visibility;
             crouchChange = _crouchChange;
+            noiseMultiplier = _noiseMultiplier;
             isInvisible = _isInvisible;
         }
     }
@@ -38,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
     public Material defaultMat;
     public Material invisibleMat;
 
-    public PlayerStats baseStats = new PlayerStats(8.0f, 8.0f, 0.0f, 0.4f, false);
+    public PlayerStats baseStats = new PlayerStats(8.0f, 8.0f, 0.0f, 0.4f, 1.0f, false);
     public PlayerStats currentStats;
 
     private Vector3 jumpVelocity = Vector3.zero;

@@ -11,7 +11,12 @@ public class ItemList : MonoBehaviour
         CHICKEN,
         SMOKE_BOMB,
         ROSE,
-        LUNCH_BOX
+        LUNCH_BOX,
+        COFFEE,
+        GUMMY_BEAR,
+        COKE,
+        STATUE,
+        HIGH_HEELS
     }
 
     public static string GetDescription(ITEM requestedItem)
@@ -30,6 +35,16 @@ public class ItemList : MonoBehaviour
                 return "Super Fragrent Flower!?\n\nTemporary Distraction\nTrick Your Enemys!";
             case ITEM.LUNCH_BOX:
                 return "A Full Lunchbox!\n\nInstant Heal!!!\nTemporary Movespeed Down D:";
+            case ITEM.COFFEE:
+                return "Triple Shot Almond Milk Extra Hot Latte \n With Extra Foam And 4 Sugars\nTemporary All Positive Stat Boost!\nTemporary All Negitive Stats Afterwards!!";
+            case ITEM.GUMMY_BEAR:
+                return "Bouncy Gummy Bear!?\n\nYou Feel Springy!\nVisibility Up D:";
+            case ITEM.COKE:
+                return "Product Placement!!! #NotSponsored\n\nAll Stats Up!\nIncluding Visibility :(!";
+            case ITEM.STATUE:
+                return "Stone Statue!?\n\nBecome Indestructable!!\nThey Know You're There!!";
+            case ITEM.HIGH_HEELS:
+                return "Fasionable Heels! Gotta Get Used To Them!!\n\nHealth Up!\nTemporary Visibilty and Noise Up! :(";
 
         }
         return "ERROR: item no description";

@@ -72,6 +72,30 @@ public class StatusEffectIcons : MonoBehaviour
                 slots[numSlotsActive].ActivateIcon(invisibleSprite, effect.GetType().Name, effect.durationLeft);
                 numSlotsActive++;
                 break;
+            case "JumpUpStatus":
+                slots[numSlotsActive].ActivateIcon(jumpUpSprite, effect.GetType().Name, effect.durationLeft);
+                numSlotsActive++;
+                break;
+            case "JumpDownStatus":
+                slots[numSlotsActive].ActivateIcon(jumpDownSprite, effect.GetType().Name, effect.durationLeft);
+                numSlotsActive++;
+                break;
+            case "NoiseUpStatus":
+                slots[numSlotsActive].ActivateIcon(noiseUpSprite, effect.GetType().Name, effect.durationLeft);
+                numSlotsActive++;
+                break;
+            case "NoiseDownStatus":
+                slots[numSlotsActive].ActivateIcon(noiseDownSprite, effect.GetType().Name, effect.durationLeft);
+                numSlotsActive++;
+                break;
+            case "StealthUpStatus":
+                slots[numSlotsActive].ActivateIcon(stealthUpSprite, effect.GetType().Name, effect.durationLeft);
+                numSlotsActive++;
+                break;
+            case "StealthDownStatus":
+                slots[numSlotsActive].ActivateIcon(stealthDownSprite, effect.GetType().Name, effect.durationLeft);
+                numSlotsActive++;
+                break;
         }
     }
 

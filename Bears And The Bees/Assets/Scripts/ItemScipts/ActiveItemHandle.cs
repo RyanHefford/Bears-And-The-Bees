@@ -6,7 +6,7 @@ using static ItemList;
 
 public class ActiveItemHandle : MonoBehaviour
 {
-    private ITEM currItem = ITEM.SMOKE_BOMB;
+    private ITEM currItem = ITEM.COFFEE;
     public GameObject[] activeCollection;
     private PlayerHealth playerHealth;
     private Sprite[] iconList;
@@ -65,6 +65,14 @@ public class ActiveItemHandle : MonoBehaviour
                 playerStatusHandle.AddStatus(slowStatus);
                 ResetItem();
                 break;
+            case ITEM.COFFEE:
+                StartCoroutine(CoffeeEffect());
+                ResetItem();
+                break;
+            case ITEM.STATUE:
+                //todo
+                ResetItem();
+                break;
         }
     }
 
@@ -112,5 +120,43 @@ public class ActiveItemHandle : MonoBehaviour
                 }
             }
         }
+    }
+
+    private IEnumerator CoffeeEffect()
+    {
+        float coffeeDuration = 7f;
+
+        SpeedStatus speedUp = ScriptableObject.CreateInstance<SpeedStatus>();
+        speedUp.Init(coffeeDuration, 0.4f);
+        StealthUpStatus stealthUp = ScriptableObject.CreateInstance<StealthUpStatus>();
+        stealthUp.Init(coffeeDuration, 0.4f);
+        NoiseDownStatus noiseDown = ScriptableObject.CreateInstance<NoiseDownStatus>();
+        noiseDown.Init(coffeeDuration, 0.4f);
+        JumpUpStatus jumpUp = ScriptableObject.CreateInstance<JumpUpStatus>();
+        jumpUp.Init(coffeeDuration, 0.3f);
+
+
+        playerStatusHandle.AddStatus(speedUp);
+        playerStatusHandle.AddStatus(stealthUp);
+        playerStatusHandle.AddStatus(noiseDown);
+        playerStatusHandle.AddStatus(jumpUp);
+
+
+        yield return new WaitForSeconds(coffeeDuration);
+
+        SlowStatus speedDown = ScriptableObject.CreateInstance<SlowStatus>();
+        speedDown.Init(coffeeDuration, 0.4f);
+        StealthDownStatus stealthDown = ScriptableObject.CreateInstance<StealthDownStatus>();
+        stealthDown.Init(coffeeDuration, 0.4f);
+        NoiseUpStatus noiseUp = ScriptableObject.CreateInstance<NoiseUpStatus>();
+        noiseUp.Init(coffeeDuration, 0.4f);
+        JumpDownStatus jumpDown = ScriptableObject.CreateInstance<JumpDownStatus>();
+        jumpDown.Init(coffeeDuration, 0.3f);
+
+
+        playerStatusHandle.AddStatus(speedDown);
+        playerStatusHandle.AddStatus(stealthDown);
+        playerStatusHandle.AddStatus(noiseUp);
+        playerStatusHandle.AddStatus(jumpDown);
     }
 }
