@@ -4489,13 +4489,13 @@ MonoBehaviour:
   - {fileID: 481150338814298299}
   - {fileID: 3965471059258644545}
   - {fileID: 2694979129468892138}
-  - {fileID: 1531480998068964701}
   - {fileID: 4161591706714284061}
+  - {fileID: 1531480998068964701}
   - {fileID: 5187922477830195128}
   - {fileID: 1378980093787154160}
   - {fileID: 3411272588474599728}
-  limit1: 3
-  limit2: 5
+  limit1: 4
+  limit2: 6
   limit3: 8
 --- !u!1 &4558943174524406409
 GameObject:
@@ -10162,7 +10162,7 @@ PrefabInstance:
     - target: {fileID: 5533080176135765571, guid: 450801b04bd6a1848b281e1a2e0f551b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 5533080176135765571, guid: 450801b04bd6a1848b281e1a2e0f551b,
         type: 3}
@@ -10235,7 +10235,7 @@ PrefabInstance:
         type: 3}
       propertyPath: itemPool.Array.data[2]
       value: 
-      objectReference: {fileID: 8897082280717594106, guid: 4e02f1058540468458f864c9a9514424,
+      objectReference: {fileID: 8897082280717594106, guid: 34b7c232f5ede784492687cdf3a003e2,
         type: 3}
     - target: {fileID: 1264871186246074162, guid: 36dd72e298031c64798583b9dda86b5f,
         type: 3}
@@ -10492,7 +10492,7 @@ PrefabInstance:
         type: 3}
       propertyPath: itemPool.Array.data[2]
       value: 
-      objectReference: {fileID: 8897082280717594106, guid: 4e02f1058540468458f864c9a9514424,
+      objectReference: {fileID: 8897082280717594106, guid: 34b7c232f5ede784492687cdf3a003e2,
         type: 3}
     - target: {fileID: 1264871186246074162, guid: 36dd72e298031c64798583b9dda86b5f,
         type: 3}
@@ -10579,7 +10579,7 @@ PrefabInstance:
         type: 3}
       propertyPath: itemPool.Array.data[2]
       value: 
-      objectReference: {fileID: 8897082280717594106, guid: 4e02f1058540468458f864c9a9514424,
+      objectReference: {fileID: 8897082280717594106, guid: 34b7c232f5ede784492687cdf3a003e2,
         type: 3}
     - target: {fileID: 1264871186246074162, guid: 36dd72e298031c64798583b9dda86b5f,
         type: 3}
@@ -11006,7 +11006,7 @@ PrefabInstance:
     - target: {fileID: 5533080176135765571, guid: 450801b04bd6a1848b281e1a2e0f551b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 5533080176135765571, guid: 450801b04bd6a1848b281e1a2e0f551b,
         type: 3}
@@ -11719,7 +11719,7 @@ PrefabInstance:
         type: 3}
       propertyPath: itemPool.Array.data[2]
       value: 
-      objectReference: {fileID: 8897082280717594106, guid: 4e02f1058540468458f864c9a9514424,
+      objectReference: {fileID: 8897082280717594106, guid: 34b7c232f5ede784492687cdf3a003e2,
         type: 3}
     - target: {fileID: 1264871186246074162, guid: 36dd72e298031c64798583b9dda86b5f,
         type: 3}
@@ -11836,7 +11836,7 @@ PrefabInstance:
     - target: {fileID: 5533080176135765571, guid: 450801b04bd6a1848b281e1a2e0f551b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 5533080176135765571, guid: 450801b04bd6a1848b281e1a2e0f551b,
         type: 3}
@@ -12145,7 +12145,7 @@ PrefabInstance:
     - target: {fileID: 5533080176135765571, guid: 450801b04bd6a1848b281e1a2e0f551b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 5533080176135765571, guid: 450801b04bd6a1848b281e1a2e0f551b,
         type: 3}
@@ -12671,7 +12671,7 @@ PrefabInstance:
     - target: {fileID: 5533080176135765571, guid: 450801b04bd6a1848b281e1a2e0f551b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 5533080176135765571, guid: 450801b04bd6a1848b281e1a2e0f551b,
         type: 3}

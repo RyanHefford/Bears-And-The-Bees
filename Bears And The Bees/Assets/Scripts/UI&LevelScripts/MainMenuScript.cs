@@ -9,10 +9,9 @@ public class MainMenuScript : MonoBehaviour
     {
         GameObject.FindGameObjectWithTag("MenuMusic").GetComponent<PlayMenuMusic>().StopMusic();
 
-        if (!PlayerPrefs.GetString("DifficultyText").Equals("Easy") ||
-            !PlayerPrefs.GetString("DifficultyText").Equals("Medium") ||
-            !PlayerPrefs.GetString("DifficultyText").Equals("Hard"))
+        if (PlayerPrefs.GetString("DifficultyText").Equals("")) 
         {
+            PlayerPrefs.SetInt("SuccessfulRuns", 0);
             MediumDifficulty();
         }
 
@@ -50,6 +49,14 @@ public class MainMenuScript : MonoBehaviour
 
     public void LoadSettingsScene()
     {
+        if (!PlayerPrefs.GetString("DifficultyText").Equals("Easy") ||
+            !PlayerPrefs.GetString("DifficultyText").Equals("Medium") ||
+            !PlayerPrefs.GetString("DifficultyText").Equals("Hard"))
+        {
+            PlayerPrefs.SetInt("SuccessfulRuns", 0);
+            MediumDifficulty();
+        }
+
         GameObject.FindGameObjectWithTag("MenuMusic").GetComponent<PlayMenuMusic>().PlayMusic();
         SceneManager.LoadScene("SettingsScene");
         PlayerPrefs.SetString("PreviousScene", SceneManager.GetActiveScene().name);
@@ -64,6 +71,7 @@ public class MainMenuScript : MonoBehaviour
         PlayerPrefs.SetFloat("AttackCD", 2.0f);
         PlayerPrefs.SetFloat("AttackRange", 2.5f);
         PlayerPrefs.SetFloat("EnemySpeed", 4.0f);
+        PlayerPrefs.SetInt("PlayerBeginningHealth", 12);
     }
 
     public void MediumDifficulty()
@@ -75,6 +83,7 @@ public class MainMenuScript : MonoBehaviour
         PlayerPrefs.SetFloat("AttackCD", 1.5f);
         PlayerPrefs.SetFloat("AttackRange", 3.0f);
         PlayerPrefs.SetFloat("EnemySpeed", 5.0f);
+        PlayerPrefs.SetInt("PlayerBeginningHealth", 8);
     }
 
     public void HardDifficulty()
@@ -86,5 +95,6 @@ public class MainMenuScript : MonoBehaviour
         PlayerPrefs.SetFloat("AttackCD", 1.0f);
         PlayerPrefs.SetFloat("AttackRange", 3.5f);
         PlayerPrefs.SetFloat("EnemySpeed", 6.0f);
+        PlayerPrefs.SetInt("PlayerBeginningHealth", 4);
     }
 }

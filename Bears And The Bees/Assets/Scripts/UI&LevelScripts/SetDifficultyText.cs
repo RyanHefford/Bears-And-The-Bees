@@ -5,7 +5,7 @@ using TMPro;
 
 public class SetDifficultyText : MonoBehaviour
 {
-    public TMP_Text diffText;
+    public TextMeshProUGUI diffText;
 
     private void Start()
     {

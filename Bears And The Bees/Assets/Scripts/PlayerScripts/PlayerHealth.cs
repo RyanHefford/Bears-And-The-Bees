@@ -5,14 +5,16 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     private int currentHealth;
+    private int maxHealth;
     private HealthBarUI healthBar;
-    public int maxHealth = 4;
 
     // Start is called before the first frame update
     void Start()
     {
+        maxHealth = PlayerPrefs.GetInt("PlayerBeginningHealth");
         currentHealth = maxHealth;
         healthBar = GameObject.FindGameObjectWithTag("PlayerHUD").GetComponentInChildren<HealthBarUI>();
+        healthBar.UpdateHealth(currentHealth, maxHealth);
     }
 
     // Update is called once per frame
@@ -28,6 +30,7 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             Cursor.lockState = CursorLockMode.None;
+            GameObject.FindGameObjectWithTag("MenuMusic").GetComponent<PlayMenuMusic>().PlayMusic();
             SceneManager.LoadScene("NoFinishScene");
         }
 

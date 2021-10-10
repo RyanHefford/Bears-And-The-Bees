@@ -21,16 +21,16 @@ public class FinishGame : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (PlayerPrefs.GetInt("SuccessfulRuns") == 0)
+            if (PlayerPrefs.GetInt("SuccessfulRuns").Equals(""))
             {
                 PlayerPrefs.SetInt("SuccessfulRuns", 0);
             }
-            else
-            {
-                int newRun = PlayerPrefs.GetInt("SuccessfulRuns") + 1;
-                PlayerPrefs.SetInt("SuccessfulRuns", newRun);
-            }
 
+            int newRun = PlayerPrefs.GetInt("SuccessfulRuns") + 1;
+            PlayerPrefs.SetInt("SuccessfulRuns", newRun);
+
+            Cursor.lockState = CursorLockMode.None;
+            GameObject.FindGameObjectWithTag("MenuMusic").GetComponent<PlayMenuMusic>().PlayMusic();
             SceneManager.LoadScene("EndGameScene");
         }
     }

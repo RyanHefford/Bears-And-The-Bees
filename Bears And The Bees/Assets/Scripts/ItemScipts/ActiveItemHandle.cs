@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 using static ItemList;
 
 public class ActiveItemHandle : MonoBehaviour
@@ -14,6 +15,11 @@ public class ActiveItemHandle : MonoBehaviour
     private Image activeSprite;
     public GameObject roseThrowable;
     private GameObject[] enemies;
+
+    public AudioSource bombSound;
+    public AudioSource roseSound;
+    public AudioSource lunchboxSound;
+    public AudioSource coffeeSound;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +46,7 @@ public class ActiveItemHandle : MonoBehaviour
         switch (currItem)
         {
             case ITEM.SMOKE_BOMB:
+                bombSound.Play();
                 SpeedStatus speedStatus = ScriptableObject.CreateInstance<SpeedStatus>();
                 speedStatus.Init(2f, 0.15f);
                 playerStatusHandle.AddStatus(speedStatus);
@@ -53,24 +60,28 @@ public class ActiveItemHandle : MonoBehaviour
                 ResetItem();
                 break;
             case ITEM.ROSE:
+                roseSound.Play();
                 GameObject tempRose = Instantiate<GameObject>(roseThrowable);
                 tempRose.transform.position = transform.position + transform.forward;
                 tempRose.GetComponent<Rigidbody>().AddForce(transform.forward * 800);
                 ResetItem();
                 break;
             case ITEM.LUNCH_BOX:
-                playerHealth.Heal(6);
+                lunchboxSound.Play();
+                playerHealth.Heal(PlayerPrefs.GetInt("PlayerBeginningHealth") / 2);
                 SlowStatus slowStatus = ScriptableObject.CreateInstance<SlowStatus>();
                 slowStatus.Init(5f, 0.4f);
                 playerStatusHandle.AddStatus(slowStatus);
                 ResetItem();
                 break;
             case ITEM.COFFEE:
+                coffeeSound.Play();
                 StartCoroutine(CoffeeEffect());
                 ResetItem();
                 break;
             case ITEM.STATUE:
                 //todo
+                roseSound.Play();
                 ResetItem();
                 break;
         }
