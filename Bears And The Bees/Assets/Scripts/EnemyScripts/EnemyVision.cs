@@ -43,6 +43,7 @@ public class EnemyVision : MonoBehaviour
     private MeshRenderer meshRenderer;
     public int edgeResolveInterations;
     public float edgeDistanceThreshold;
+    private float visionHeightAngle = 5;
 
     //bee animation
     private Animator animator;
@@ -147,49 +148,153 @@ public class EnemyVision : MonoBehaviour
     {
         int stepCount = Mathf.RoundToInt(viewAngle * meshResolution);
         float stepAngleSize = viewAngle / stepCount;
-        List<Vector3> viewPoints = new List<Vector3>();
+        List<Vector3> bottomViewPoints = new List<Vector3>();
+        List<Vector3> topViewPoints = new List<Vector3>();
 
-        ViewCastInfo oldViewCast = new ViewCastInfo();
+        ViewCastInfo[] oldViewCast = new ViewCastInfo[2];
 
         for(int i = 0; i <= stepCount; i++){
+
             float currAngle = transform.eulerAngles.y - viewAngle / 2 + stepAngleSize * i;
-            ViewCastInfo newViewCast = ViewCast(currAngle);
+            ViewCastInfo[] newViewCast = new ViewCastInfo[2];
+            newViewCast[0] = ViewCast(currAngle, true);
+            newViewCast[1] = ViewCast(currAngle, false);
 
-            if (i > 0)
+            newViewCast = AdjustCastPoints(newViewCast, currAngle);
+
+            ViewCastInfo topEdgeA = new ViewCastInfo(false, Vector3.zero, 0, 0);
+            ViewCastInfo topEdgeB = new ViewCastInfo(false, Vector3.zero, 0, 0);
+            ViewCastInfo bottomEdgeA = new ViewCastInfo(false, Vector3.zero, 0, 0);
+            ViewCastInfo bottomEdgeB = new ViewCastInfo(false, Vector3.zero, 0, 0);
+
+
+            for (int j = 0; j < 2; j++)
             {
-                bool edgeDstThresholdExceeded = Mathf.Abs(oldViewCast.dst - newViewCast.dst) > edgeDistanceThreshold;
-                if (oldViewCast.hit != newViewCast.hit || (oldViewCast.hit && newViewCast.hit && edgeDstThresholdExceeded))
+                //if top point
+                if (j == 0)
                 {
-                    EdgeInfo edge = FindEdge(oldViewCast, newViewCast);
-                    if(edge.pointA != Vector3.zero)
-                    {
-                        viewPoints.Add(edge.pointA);
-                    }
-                    if (edge.pointB != Vector3.zero)
-                    {
-                        viewPoints.Add(edge.pointB);
-                    }
-                }
-            }
 
-            viewPoints.Add(newViewCast.point);
-            oldViewCast = newViewCast;
+                    if (i > 0)
+                    {
+                        bool edgeDstThresholdExceeded = Mathf.Abs(oldViewCast[j].dst - newViewCast[j].dst) > edgeDistanceThreshold;
+                        if (oldViewCast[j].hit != newViewCast[j].hit || (oldViewCast[j].hit && newViewCast[j].hit && edgeDstThresholdExceeded))
+                        {
+                            EdgeInfo edge = FindEdge(oldViewCast[j], newViewCast[j], true);
+
+                            if (edge.pointA.point != Vector3.zero)
+                            {
+                                //topViewPoints.Add(edge.pointA);
+                                topEdgeA = edge.pointA;
+                            }
+                            if (edge.pointB.point != Vector3.zero)
+                            {
+                                //topViewPoints.Add(edge.pointB);
+                                topEdgeB = edge.pointB;
+                            }
+                        }
+                    }
+                    //topViewPoints.Add(newViewCast[j].point);
+                    //oldViewCast[j] = newViewCast[j];
+                }
+                else
+                {
+
+                    if (i > 0)
+                    {
+                        bool edgeDstThresholdExceeded = Mathf.Abs(oldViewCast[j].dst - newViewCast[j].dst) > edgeDistanceThreshold;
+                        if (oldViewCast[j].hit != newViewCast[j].hit || (oldViewCast[j].hit && newViewCast[j].hit && edgeDstThresholdExceeded))
+                        {
+                            EdgeInfo edge = FindEdge(oldViewCast[j], newViewCast[j], false);
+                            if (edge.pointA.point != Vector3.zero)
+                            {
+                                //bottomViewPoints.Add(edge.pointA);
+                                bottomEdgeA = edge.pointA;
+                            }
+                            if (edge.pointB.point != Vector3.zero)
+                            {
+                                //bottomViewPoints.Add(edge.pointB);
+                                bottomEdgeB = edge.pointB;
+                            }
+                        }
+                    }
+
+                    //now update variables
+                    //compare Edges
+
+                    Vector3[] updatedEdgesA = UpdateEdges(topEdgeA, bottomEdgeA);
+                    Vector3[] updatedEdgesB = UpdateEdges(topEdgeB, bottomEdgeB);
+
+
+                    if (updatedEdgesA[0] != Vector3.zero && updatedEdgesA[1] != Vector3.zero)
+                    {
+                        topViewPoints.Add(updatedEdgesA[0]);
+                        bottomViewPoints.Add(updatedEdgesA[1]);
+                    }
+
+                    if (updatedEdgesB[0] != Vector3.zero && updatedEdgesB[1] != Vector3.zero)
+                    {
+                        topViewPoints.Add(updatedEdgesB[0]);
+                        bottomViewPoints.Add(updatedEdgesB[1]);
+                    }
+
+                    Vector3[] updatedRegularPoints = UpdateEdges(newViewCast[j - 1], newViewCast[j]);
+
+                    topViewPoints.Add(updatedRegularPoints[0]);
+                    oldViewCast[j - 1] = newViewCast[j - 1];
+
+                    bottomViewPoints.Add(updatedRegularPoints[1]);
+                    oldViewCast[j] = newViewCast[j];
+                }
+
+            }
         }
 
-        int vertexCount = viewPoints.Count + 1;
+        List<Vector3> combinedList = new List<Vector3>();
+        combinedList.AddRange(topViewPoints);
+        combinedList.AddRange(bottomViewPoints);
+
+        int vertexCount = combinedList.Count + 1;
         Vector3[] vertices = new Vector3[vertexCount];
-        int[] triangles = new int[(vertexCount - 2) * 3];
+        int[] triangles = new int[(vertexCount) * 9 + 6];
+
+        int numTriangles = 0;
 
         vertices[0] = Vector3.zero;
-        for(int i = 0; i < vertexCount - 1; i++)
+        for (int i = 0; i < vertexCount - 1; i++)
         {
-            vertices[i + 1] = transform.InverseTransformPoint(viewPoints[i]);
-            if(i < vertexCount - 2)
-            {
-                triangles[i * 3] = 0;
-                triangles[i * 3 + 1] = i + 1;
-                triangles[i * 3 + 2] = i + 2;
+            vertices[i + 1] = transform.InverseTransformPoint(combinedList[i]);
+        }
+        //create left triangle
+        triangles[numTriangles++] = 0;
+        triangles[numTriangles++] = topViewPoints.Count + 1;
+        triangles[numTriangles++] = 1;
 
+        triangles[numTriangles++] = 0;
+        triangles[numTriangles++] = topViewPoints.Count;
+        triangles[numTriangles++] = combinedList.Count;
+
+
+        for (int i = 1; i < vertexCount - 2; i++)
+        {
+            //top and bottom mesh
+            if (i != topViewPoints.Count)
+            {
+                triangles[numTriangles++] = 0;
+                triangles[numTriangles++] = i;
+                triangles[numTriangles++] = i + 1;
+
+            }
+
+            //front facing points
+            if (i < topViewPoints.Count - 1)
+            {
+                triangles[numTriangles++] = i;
+                triangles[numTriangles++] = topViewPoints.Count + i;
+                triangles[numTriangles++] = i + 1;
+
+                triangles[numTriangles++] = i + 1;
+                triangles[numTriangles++] = topViewPoints.Count + i;
+                triangles[numTriangles++] = topViewPoints.Count + i + 1;
             }
         }
 
@@ -199,18 +304,78 @@ public class EnemyVision : MonoBehaviour
         viewMesh.RecalculateNormals();
     }
 
-    private Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
+    private Vector3[] UpdateEdges(ViewCastInfo topEdge, ViewCastInfo bottomEdge)
+    {
+        //check a points
+        if (topEdge.point != Vector3.zero)
+        {
+            if (bottomEdge.point != Vector3.zero)
+            {
+                if (topEdge.dst > bottomEdge.dst)
+                {
+                    topEdge = UpdateCastPoint(topEdge, true ,bottomEdge.dst);
+                }
+                else
+                {
+                    bottomEdge = UpdateCastPoint(bottomEdge, false, topEdge.dst);
+                }
+            }
+            else
+            {
+                bottomEdge = topEdge;
+                bottomEdge = UpdateCastPoint(bottomEdge, false, topEdge.dst);
+            }
+        }
+        else if (bottomEdge.point != Vector3.zero)
+        {
+            topEdge = bottomEdge;
+            topEdge = UpdateCastPoint(topEdge, true, bottomEdge.dst);
+        }
+
+        return new Vector3[] { topEdge.point, bottomEdge.point };
+    }
+
+    private ViewCastInfo UpdateCastPoint(ViewCastInfo pointToUpdate, bool isTopPoint, float newDistance)
+    {
+        Vector3 dir = DirFromAngle(pointToUpdate.angle, true, isTopPoint);
+        pointToUpdate.point = transform.position + dir * newDistance;
+        pointToUpdate.dst = newDistance;
+
+        return pointToUpdate;
+    }
+
+    private ViewCastInfo[] AdjustCastPoints(ViewCastInfo[] viewCast, float globalAngle)
+    {
+        int shortest = viewCast[0].dst < viewCast[1].dst ? 0 : 1;
+        int longest = shortest == 0 ? 1 : 0;
+
+        Vector3 dir = DirFromAngle(globalAngle, true, longest == 0);
+
+        viewCast[longest] = new ViewCastInfo(false, transform.position + dir * viewCast[longest].dst, viewCast[longest].dst, globalAngle);
+
+        return viewCast;
+    }
+
+    private Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal, bool isTopPoint)
     {
         if (!angleIsGlobal)
         {
             angleInDegrees += transform.eulerAngles.y;
         }
-        return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
+
+        if (isTopPoint)
+        {
+            return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Sin(visionHeightAngle * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
+        }
+        else
+        {
+            return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), -Mathf.Sin(visionHeightAngle * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
+        }
     }
 
-    ViewCastInfo ViewCast(float globalAngle)
+    ViewCastInfo ViewCast(float globalAngle, bool isTopPoint)
     {
-        Vector3 dir = DirFromAngle(globalAngle, true);
+        Vector3 dir = DirFromAngle(globalAngle, true, isTopPoint);
         RaycastHit hit;
 
         //check if hit player
@@ -244,28 +409,43 @@ public class EnemyVision : MonoBehaviour
         }
     }
 
-    EdgeInfo FindEdge(ViewCastInfo minViewCast, ViewCastInfo maxViewCast)
+    ViewCastInfo ChangeCastDistance(ViewCastInfo oldCast, bool isTopPoint, float newDistance)
+    {
+        RaycastHit hit;
+        Vector3 dir = DirFromAngle(oldCast.angle, true, isTopPoint);
+
+        if (Physics.Raycast(transform.position, dir, out hit, viewRadius))
+        {
+            return new ViewCastInfo(true, hit.point, hit.distance, oldCast.angle);
+        }
+        else
+        {
+            return new ViewCastInfo(false, transform.position + dir * newDistance, viewRadius, oldCast.angle);
+        }
+    }
+
+    EdgeInfo FindEdge(ViewCastInfo minViewCast, ViewCastInfo maxViewCast, bool isTopPoint)
     {
         float minAngle = minViewCast.angle;
         float maxAngle = maxViewCast.angle;
-        Vector3 minPoint = Vector3.zero;
-        Vector3 maxPoint = Vector3.zero;
+        ViewCastInfo minPoint = new ViewCastInfo(false, Vector3.zero, 0, 0);
+        ViewCastInfo maxPoint = new ViewCastInfo(false, Vector3.zero, 0, 0);
 
         for (int i = 0; i < edgeResolveInterations; i++)
         {
             float currAngle = (minAngle + maxAngle) / 2;
-            ViewCastInfo newViewCast = ViewCast(currAngle);
+            ViewCastInfo newViewCast = ViewCast(currAngle, isTopPoint);
 
             bool edgeDstThresholdExceeded = Mathf.Abs(minViewCast.dst - newViewCast.dst) > edgeDistanceThreshold;
             if (newViewCast.hit == minViewCast.hit && !edgeDstThresholdExceeded)
             {
                 minAngle = currAngle;
-                minPoint = newViewCast.point;
+                minPoint = newViewCast;
             }
             else
             {
                 maxAngle = currAngle;
-                maxPoint = newViewCast.point;
+                maxPoint = newViewCast;
             }
         }
 
@@ -295,25 +475,25 @@ public class EnemyVision : MonoBehaviour
         switch (currState)
         {
             case STATE.PASSIVE:
-                meshRenderer.material.color = new Color(0, 1, 0, 0.5f);
+                meshRenderer.material.color = new Color(0, 1, 0, 0.25f);
                 animator.SetBool("IsAlert", false);
                 break;
 
             case STATE.ALERT:
-                meshRenderer.material.color = new Color(1, 0.5f, 0, 0.5f);
+                meshRenderer.material.color = new Color(1, 0.5f, 0, 0.25f);
                 break;
 
             case STATE.CHASING:
-                meshRenderer.material.color = new Color(1, 0, 0, 0.5f);
+                meshRenderer.material.color = new Color(1, 0, 0, 0.25f);
                 animator.SetBool("IsAlert", true);
                 break;
 
             case STATE.SEARCHING:
-                meshRenderer.material.color = new Color(1f, 1f, 0, 0.5f);
+                meshRenderer.material.color = new Color(1f, 1f, 0, 0.25f);
                 break;
 
             default:
-                meshRenderer.material.color = new Color(0, 1, 0, 0.5f);
+                meshRenderer.material.color = new Color(0, 1, 0, 0.25f);
                 break;
         }
 
@@ -337,10 +517,10 @@ public class EnemyVision : MonoBehaviour
 
     public struct EdgeInfo 
     {
-        public Vector3 pointA;
-        public Vector3 pointB;
+        public ViewCastInfo pointA;
+        public ViewCastInfo pointB;
 
-        public EdgeInfo(Vector3 _pointA, Vector3 _pointB)
+        public EdgeInfo(ViewCastInfo _pointA, ViewCastInfo _pointB)
         {
             pointA = _pointA;
             pointB = _pointB;

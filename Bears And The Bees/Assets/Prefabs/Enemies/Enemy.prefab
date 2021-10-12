@@ -125,8 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e499a547e2f7e924687d33402a317be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 3
-  attackDamage: 2
 --- !u!1 &1935677450405638005
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,7 +363,7 @@ MonoBehaviour:
     m_Bits: 512
   obtructionMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 1280
   maxSearchTime: 3
   secUntilChase: 2
   viewMeshFilter: {fileID: 1695590025}

@@ -319,7 +319,7 @@ MonoBehaviour:
     m_Bits: 512
   obtructionMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 1280
   maxSearchTime: 3
   secUntilChase: 2
   viewMeshFilter: {fileID: 1695590025}
