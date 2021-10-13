@@ -22,6 +22,7 @@ public class EnemyVision : MonoBehaviour
     //audio
     private AudioSource audioSource;
     private AudioClip[] audioClips;
+    private BackgroundMusicHandle backGroundMusic;
 
     //mask types
     public LayerMask targetMask;
@@ -49,6 +50,7 @@ public class EnemyVision : MonoBehaviour
     private Animator animator;
     private BeeEyeMovement eyeMovement;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +64,8 @@ public class EnemyVision : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         audioClips = Resources.LoadAll<AudioClip>("Sound/BeeSpotted");
         meshRenderer = GetComponentInChildren<MeshRenderer>();
+
+        backGroundMusic = GameObject.FindGameObjectWithTag("Music").GetComponent<BackgroundMusicHandle>();
 
         secUntilChase = PlayerPrefs.GetFloat("SecTillChase");
     }
@@ -118,6 +122,13 @@ public class EnemyVision : MonoBehaviour
         else if(currState == STATE.STUNNED && Time.time >= stunStart + stunDuration)
         {
             currState = STATE.ALERT;
+        }
+
+
+        //update music
+        if (currState == STATE.CHASING)
+        {
+            backGroundMusic.PlayChaseMusic();
         }
     }
 
@@ -183,18 +194,14 @@ public class EnemyVision : MonoBehaviour
 
                             if (edge.pointA.point != Vector3.zero)
                             {
-                                //topViewPoints.Add(edge.pointA);
                                 topEdgeA = edge.pointA;
                             }
                             if (edge.pointB.point != Vector3.zero)
                             {
-                                //topViewPoints.Add(edge.pointB);
                                 topEdgeB = edge.pointB;
                             }
                         }
                     }
-                    //topViewPoints.Add(newViewCast[j].point);
-                    //oldViewCast[j] = newViewCast[j];
                 }
                 else
                 {
@@ -207,12 +214,10 @@ public class EnemyVision : MonoBehaviour
                             EdgeInfo edge = FindEdge(oldViewCast[j], newViewCast[j], false);
                             if (edge.pointA.point != Vector3.zero)
                             {
-                                //bottomViewPoints.Add(edge.pointA);
                                 bottomEdgeA = edge.pointA;
                             }
                             if (edge.pointB.point != Vector3.zero)
                             {
-                                //bottomViewPoints.Add(edge.pointB);
                                 bottomEdgeB = edge.pointB;
                             }
                         }

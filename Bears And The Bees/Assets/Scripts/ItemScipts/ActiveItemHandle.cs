@@ -7,7 +7,7 @@ using static ItemList;
 
 public class ActiveItemHandle : MonoBehaviour
 {
-    private ITEM currItem = ITEM.COFFEE;
+    private ITEM currItem = ITEM.VANS;
     public GameObject[] activeCollection;
     private PlayerHealth playerHealth;
     private Sprite[] iconList;
@@ -60,7 +60,7 @@ public class ActiveItemHandle : MonoBehaviour
                 ResetItem();
                 break;
             case ITEM.ROSE:
-                roseSound.Play();
+                //roseSound.Play();
                 GameObject tempRose = Instantiate<GameObject>(roseThrowable);
                 tempRose.transform.position = transform.position + transform.forward;
                 tempRose.GetComponent<Rigidbody>().AddForce(transform.forward * 800);

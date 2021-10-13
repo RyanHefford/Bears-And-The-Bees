@@ -24,6 +24,12 @@ public class SunEnemyVision : MonoBehaviour
     public LayerMask obtructionMask;
     public Material sunMaterial;
 
+    //sound
+    public AudioSource soundEffectSource;
+    private AudioClip[] flareSoundEffects;
+    private BackgroundMusicHandle backGroundMusic;
+    public AudioSource alarmSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +37,10 @@ public class SunEnemyVision : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player");
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        soundEffectSource = GetComponent<AudioSource>();
+        flareSoundEffects = Resources.LoadAll<AudioClip>("Sound/SunFlare");
+        backGroundMusic = GameObject.FindGameObjectWithTag("Music").GetComponent<BackgroundMusicHandle>();
 
     }
 
@@ -53,11 +63,13 @@ public class SunEnemyVision : MonoBehaviour
             {
                 AlertAllEnemies();
                 SlowStatus slowStatus = ScriptableObject.CreateInstance<SlowStatus>();
-                slowStatus.Init(2f, 0.15f);
+                slowStatus.Init(2f, 0.35f);
                 player.GetComponent<StatusEffectHandler>().AddStatus(slowStatus);
                 lastFlareTime = Time.time;
                 lastSeenPlayer = Time.time;
                 playerVisible = true;
+
+                backGroundMusic.PlayChaseMusic();
             }
             else
             {
@@ -77,6 +89,16 @@ public class SunEnemyVision : MonoBehaviour
             visionLight.intensity = 100 * (percentComplete / 2.0f);
             Color currColor = Color.yellow * percentComplete;
             sunMaterial.SetColor("_EmissionColor", currColor);
+        }
+
+
+        if (lastSeenPlayer + alertTime < Time.time)
+        {
+            alarmSound.Stop();
+        }
+        else if(!alarmSound.isPlaying)
+        {
+            alarmSound.Play();
         }
     }
 
@@ -154,6 +176,8 @@ public class SunEnemyVision : MonoBehaviour
 
     private IEnumerator FlareWarning()
     {
+        soundEffectSource.PlayOneShot(flareSoundEffects[UnityEngine.Random.Range(0, 2)]);
+
         visionLight.color = Color.yellow;
         isWarning = true;
         visionLight.enabled = true;

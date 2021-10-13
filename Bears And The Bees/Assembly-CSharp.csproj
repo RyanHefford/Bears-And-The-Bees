@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -53,9 +53,6 @@
     <UnityVersion>2020.3.0f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Assets\Scripts\UI&amp;LevelScripts\LevelGenerate.cs" />
     <Compile Include="Assets\LevelGenerator\Scripts\Exits.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
@@ -66,6 +63,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scripts\EnemyScripts\EnemyAttack.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\ImprovedVision.cs" />
     <Compile Include="Assets\Scripts\UI&amp;LevelScripts\HealthBarUI.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\StatusEffectHandler.cs" />
     <Compile Include="Assets\Scripts\ItemScipts\RoseScript.cs" />
@@ -138,7 +136,8 @@
     <Compile Include="Assets\LevelGenerator\Scripts\Exceptions\InvalidRuleDeclarationException.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Scripts\UI&amp;LevelScripts\RotatingBottle.cs" />
-    <Compile Include="Assets\Scripts\EnemyScripts\ImprovedVision.cs" />
+    <Compile Include="Assets\Scripts\UI&amp;LevelScripts\BackgroundMusicHandle.cs" />
+    <Compile Include="Assets\Scripts\PlayerScripts\FootStepHandle.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

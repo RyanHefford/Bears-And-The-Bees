@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 1935677451369627715}
   - component: {fileID: 1676596100}
   - component: {fileID: 1676596104}
-  - component: {fileID: 5949542854567692584}
+  - component: {fileID: 7955244302278468669}
   m_Layer: 0
   m_Name: Eyes
   m_TagString: Untagged
@@ -421,7 +421,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5949542854567692584
+--- !u!114 &7955244302278468669
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
