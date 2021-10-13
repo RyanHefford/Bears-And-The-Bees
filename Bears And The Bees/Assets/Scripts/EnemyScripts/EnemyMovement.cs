@@ -38,7 +38,12 @@ public class EnemyMovement : MonoBehaviour
                 break;
 
             case EnemyVision.STATE.ALERT:
-                navAgent.SetDestination(vision.getLastSeenPosition());
+                Vector3 dir = vision.getLastSeenPosition() - transform.position;
+                dir.y = 0; // keep the direction strictly horizontal
+                Quaternion rot = Quaternion.LookRotation(dir);
+                // slerp to the desired rotation over time
+                transform.rotation = Quaternion.Slerp(transform.rotation, rot, 3 * Time.deltaTime);
+
                 navAgent.isStopped = true;
                 break;
 
@@ -49,6 +54,11 @@ public class EnemyMovement : MonoBehaviour
                 break;
 
             case EnemyVision.STATE.SEARCHING:
+                if (Vector3.Distance(this.transform.position, navAgent.destination) <= 0.5)
+                {
+                    Vector3 randomVector3 = new Vector3(Random.Range(-10,10), Random.Range(-10, 10), Random.Range(-10, 10));
+                    vision.lastSeenPosition += randomVector3;
+                }
                 navAgent.SetDestination(vision.getLastSeenPosition());
                 navAgent.autoBraking = true;
                 navAgent.isStopped = false;

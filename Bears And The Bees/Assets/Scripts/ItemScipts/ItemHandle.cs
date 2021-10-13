@@ -9,6 +9,7 @@ public class ItemHandle : MonoBehaviour
     private PlayerHealth playerHealth;
     private ActiveItemHandle activeHandle;
     private StatusEffectHandler playerStatusHandle;
+    private ItemPopup itemPopup;
     public bool hasActiveItem = false;
 
     // Start is called before the first frame update
@@ -18,6 +19,7 @@ public class ItemHandle : MonoBehaviour
         playerHealth = GetComponent<PlayerHealth>();
         activeHandle = GetComponent<ActiveItemHandle>();
         playerStatusHandle = GetComponent<StatusEffectHandler>();
+        itemPopup = GameObject.FindGameObjectWithTag("PlayerHUD").GetComponentInChildren<ItemPopup>();
     }
 
     // Update is called once per frame
@@ -95,6 +97,6 @@ public class ItemHandle : MonoBehaviour
                 
         }
 
-        FindObjectOfType<Canvas>().GetComponentInChildren<ItemPopup>().ChangeItem(item);
+        itemPopup.ChangeItem(item);
     }
 }

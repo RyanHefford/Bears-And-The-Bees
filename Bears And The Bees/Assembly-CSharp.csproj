@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\PlayerScripts\StatusEffectHandler.cs" />
     <Compile Include="Assets\Scripts\ItemScipts\RoseScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
+    <Compile Include="Assets\Scripts\UI&amp;LevelScripts\BackgroundMusicHandle.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\ItemScipts\ItemPopup.cs" />
@@ -124,6 +125,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerNoise.cs" />
     <Compile Include="Assets\LevelGenerator\Scripts\LevelGenerator.cs" />
+    <Compile Include="Assets\Scripts\PlayerScripts\FootStepHandle.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\Scripts\EnemyScripts\SunEnemyVision.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
@@ -136,8 +138,7 @@
     <Compile Include="Assets\LevelGenerator\Scripts\Exceptions\InvalidRuleDeclarationException.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Scripts\UI&amp;LevelScripts\RotatingBottle.cs" />
-    <Compile Include="Assets\Scripts\UI&amp;LevelScripts\BackgroundMusicHandle.cs" />
-    <Compile Include="Assets\Scripts\PlayerScripts\FootStepHandle.cs" />
+    <Compile Include="Assets\EnemyStateIndicator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

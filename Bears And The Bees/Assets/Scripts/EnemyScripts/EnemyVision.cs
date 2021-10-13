@@ -32,10 +32,11 @@ public class EnemyVision : MonoBehaviour
     private bool canSeePlayer;
     private bool firstTimeSpotted = true;
     private float timeSeenPlayer = 0;
+    public float percentageAlert = 0;
     public float maxSearchTime = 3f;
-    private float searchTime = 0f;
+    //private float searchTime = 0f;
     public float secUntilChase = 1.5f;
-    private Vector3 lastSeenPosition;
+    public Vector3 lastSeenPosition;
     private PlayerMovement playerMovement;
 
     //vision cone
@@ -79,13 +80,10 @@ public class EnemyVision : MonoBehaviour
             //Logic for changing states
             if (canSeePlayer && !playerMovement.currentStats.isInvisible)
             {
-                if ((timeSeenPlayer >= secUntilChase - playerMovement.currentStats.visibility || searchTime > 0))
+                if (percentageAlert >= 1 || currState == STATE.SEARCHING)
                 {
+                    timeSeenPlayer = maxSearchTime;
                     currState = STATE.CHASING;
-                    searchTime = maxSearchTime;
-                    SlowStatus slowStatus = ScriptableObject.CreateInstance<SlowStatus>();
-                    slowStatus.Init(2f, 0.15f);
-                    playerMovement.GetComponent<StatusEffectHandler>().AddStatus(slowStatus);
                 }
                 else
                 {
@@ -98,14 +96,27 @@ public class EnemyVision : MonoBehaviour
                         StartCoroutine(AlertDelay());
                     }
                 }
-                timeSeenPlayer += Time.deltaTime;
+
+                //increase time seen taking into account distance from bee
+                float currDistance = Vector3.Distance(transform.position, lastSeenPosition);
+                float percentage = (1 - (currDistance / viewRadius));
+                if (percentage <= 1 && percentage >= 0)
+                {
+                    float maxMultiplier = 5;
+                    float multiplier = maxMultiplier * percentage;
+                    timeSeenPlayer += Time.deltaTime * multiplier;
+                }
+                else
+                {
+                    timeSeenPlayer += Time.deltaTime;
+                }
             }
             else
             {
-                if (searchTime > 0)
+                timeSeenPlayer -= Time.deltaTime;
+                if (timeSeenPlayer > 0)
                 {
                     currState = STATE.SEARCHING;
-                    searchTime -= Time.deltaTime;
                 }
                 else
                 {
@@ -115,7 +126,7 @@ public class EnemyVision : MonoBehaviour
                 }
 
             }
-
+            UpdateAlertPercentage();
             updateColor();
             eyeMovement.UpdatePosition(currState != STATE.PASSIVE && currState != STATE.ALERT);
         }
@@ -148,6 +159,17 @@ public class EnemyVision : MonoBehaviour
         isAlert = true;
         yield return new WaitForSeconds(alertPauseDuration);
         isAlert = false;
+    }
+
+    private void UpdateAlertPercentage()
+    {
+        percentageAlert = timeSeenPlayer / secUntilChase - playerMovement.currentStats.visibility;
+
+        if (percentageAlert > 1)
+        {
+            percentageAlert = 1;
+        }
+
     }
 
     public Vector3 getLastSeenPosition()
@@ -460,7 +482,6 @@ public class EnemyVision : MonoBehaviour
 
     public void PlayerFound(Vector3 spottedPosition)
     {
-        searchTime = maxSearchTime;
         currState = STATE.SEARCHING;
         lastSeenPosition = spottedPosition;
     }

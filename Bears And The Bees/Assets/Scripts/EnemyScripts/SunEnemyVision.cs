@@ -126,7 +126,7 @@ public class SunEnemyVision : MonoBehaviour
         RaycastHit hit;
 
         //check if hit player
-        if (Physics.Raycast(transform.position, reletiveNormalizedPos, out hit, visionLight.range, targetMask) && Mathf.Abs(angleToPlayer) < visionLight.spotAngle / 2f)
+        if (!player.GetComponent<PlayerMovement>().currentStats.isInvisible && Physics.Raycast(transform.position, reletiveNormalizedPos, out hit, visionLight.range, targetMask) && Mathf.Abs(angleToPlayer) < visionLight.spotAngle / 2f)
         {
             Vector3 currPlayerPoint = hit.point;
             //check if wall is in the way
