@@ -102,6 +102,7 @@ public class LevelGenerate : MonoBehaviour
         Vector3 position = new Vector3(currAreaValues.GetEntranceDist() - 3.5f + transformPosX, 1f + transformPosY, 3f - transformPosZ);
 
         GameObject tempPlayer = Instantiate(player, position, Quaternion.identity);
+        tempPlayer.transform.Rotate(0,180,0);
         GameObject followCamera = Instantiate(newCamera, position, Quaternion.identity);
         followCamera.transform.Rotate(45f, 135f, 0f);
         GameObject tempVirtualCam = Instantiate(cinemachineCamera);
