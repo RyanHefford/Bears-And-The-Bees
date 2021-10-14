@@ -21,7 +21,7 @@ public class SoundEnemyMovement : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerMvmt = player.GetComponent<PlayerMovement>();
         parentPosition = transform.parent.position;
-
+        Wander();
     }
 
     // Update is called once per frame
