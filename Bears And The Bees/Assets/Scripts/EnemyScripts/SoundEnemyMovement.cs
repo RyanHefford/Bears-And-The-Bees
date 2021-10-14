@@ -53,12 +53,8 @@ public class SoundEnemyMovement : MonoBehaviour
             lookingForPlayer = true;
 
             agent.SetDestination(player.transform.position);
-            // Go find player
         }
-        else
-        {
-            Wander();
-        }
+       
     }
 
     private void Wander()
