@@ -66,7 +66,7 @@ public class MainMenuScript : MonoBehaviour
     {
         PlayerPrefs.SetInt("Difficulty", 2);
         PlayerPrefs.SetString("DifficultyText", "Easy");
-        PlayerPrefs.SetInt("EnemyAttack", 1);
+        PlayerPrefs.SetInt("EnemyAttack", 2);
         PlayerPrefs.SetFloat("SecTillChase", 1.5f);
         PlayerPrefs.SetFloat("AttackCD", 2.0f);
         PlayerPrefs.SetFloat("AttackRange", 2.5f);
