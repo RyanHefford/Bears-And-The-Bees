@@ -21,7 +21,7 @@ public class SetDifficultyText : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         diffText.text = PlayerPrefs.GetString("DifficultyText");
     }
