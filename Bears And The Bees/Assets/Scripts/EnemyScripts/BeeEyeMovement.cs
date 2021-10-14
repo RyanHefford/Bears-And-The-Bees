@@ -5,7 +5,7 @@ using UnityEngine;
 public class BeeEyeMovement : MonoBehaviour
 {
     private bool currentlyChasing = false;
-    private Vector3 alertReposition = new Vector3(0,0.35f,-0.5f);
+    public Vector3 alertReposition = new Vector3(0,0.35f,-0.5f);
 
 
     public void UpdatePosition(bool isChasing)

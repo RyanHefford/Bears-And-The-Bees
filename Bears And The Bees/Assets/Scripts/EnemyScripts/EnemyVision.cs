@@ -11,8 +11,8 @@ public class EnemyVision : MonoBehaviour
     private STATE currState = STATE.PASSIVE;
 
     //basic enemy stats
-    private float viewRadius = 15;
-    private float viewAngle = 100;
+    public float viewRadius = 15;
+    public float viewAngle = 100;
     public float meshResolution = 0.1f;
     public float alertPauseDuration = 1f;
     public bool isAlert = false;
@@ -33,6 +33,7 @@ public class EnemyVision : MonoBehaviour
     private bool firstTimeSpotted = true;
     private float timeSeenPlayer = 0;
     public float percentageAlert = 0;
+    private float currSearchTimer;
     public float maxSearchTime = 3f;
     //private float searchTime = 0f;
     public float secUntilChase = 1.5f;
@@ -82,7 +83,7 @@ public class EnemyVision : MonoBehaviour
             {
                 if (percentageAlert >= 1 || currState == STATE.SEARCHING)
                 {
-                    timeSeenPlayer = maxSearchTime;
+                    currSearchTimer = maxSearchTime;
                     currState = STATE.CHASING;
                 }
                 else
@@ -113,14 +114,15 @@ public class EnemyVision : MonoBehaviour
             }
             else
             {
-                timeSeenPlayer -= Time.deltaTime;
-                if (timeSeenPlayer > 0)
+                currSearchTimer -= Time.deltaTime;
+                if (currSearchTimer > 0)
                 {
                     currState = STATE.SEARCHING;
                 }
                 else
                 {
                     timeSeenPlayer = 0;
+                    lastSeenPosition = Vector3.zero;
                     currState = STATE.PASSIVE;
                     firstTimeSpotted = true;
                 }
@@ -163,7 +165,14 @@ public class EnemyVision : MonoBehaviour
 
     private void UpdateAlertPercentage()
     {
-        percentageAlert = timeSeenPlayer / secUntilChase - playerMovement.currentStats.visibility;
+        if (currState == STATE.SEARCHING)
+        {
+            percentageAlert = currSearchTimer / maxSearchTime;
+        }
+        else
+        {
+            percentageAlert = timeSeenPlayer / (secUntilChase - playerMovement.currentStats.visibility);
+        }
 
         if (percentageAlert > 1)
         {
@@ -436,21 +445,6 @@ public class EnemyVision : MonoBehaviour
         }
     }
 
-    ViewCastInfo ChangeCastDistance(ViewCastInfo oldCast, bool isTopPoint, float newDistance)
-    {
-        RaycastHit hit;
-        Vector3 dir = DirFromAngle(oldCast.angle, true, isTopPoint);
-
-        if (Physics.Raycast(transform.position, dir, out hit, viewRadius))
-        {
-            return new ViewCastInfo(true, hit.point, hit.distance, oldCast.angle);
-        }
-        else
-        {
-            return new ViewCastInfo(false, transform.position + dir * newDistance, viewRadius, oldCast.angle);
-        }
-    }
-
     EdgeInfo FindEdge(ViewCastInfo minViewCast, ViewCastInfo maxViewCast, bool isTopPoint)
     {
         float minAngle = minViewCast.angle;
@@ -482,8 +476,24 @@ public class EnemyVision : MonoBehaviour
 
     public void PlayerFound(Vector3 spottedPosition)
     {
-        currState = STATE.SEARCHING;
+        if ((currState == STATE.PASSIVE || currState == STATE.STUNNED) && currState != STATE.CHASING)
+        {
+            //play alert sound effect
+            audioSource.PlayOneShot(audioClips[Random.Range(0, audioClips.Length)]);
+            currState = STATE.SEARCHING;
+            firstTimeSpotted = false;
+            currSearchTimer = maxSearchTime/4;
+        }
+
+        currSearchTimer += Time.deltaTime * 2;
+        if (currSearchTimer >= maxSearchTime)
+        {
+            currSearchTimer = maxSearchTime;
+        }
+
+        timeSeenPlayer += Time.deltaTime;
         lastSeenPosition = spottedPosition;
+
     }
 
     public void StunEnemy(float duration)

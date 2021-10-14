@@ -5,6 +5,7 @@ using UnityEngine;
 public class JazzEnemyAttack : MonoBehaviour
 {
     private GameObject player;
+    private EnemyVision vision;
     private float attackCooldown = 2f;
     private float attackRange = 2.5f;
     private float lastAttack = 0;
@@ -18,11 +19,12 @@ public class JazzEnemyAttack : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        vision = GetComponentInChildren<EnemyVision>();
         animator = GetComponent<Animator>();
         audioSource = GetComponentInParent<AudioSource>();
         attackDamage = PlayerPrefs.GetInt("EnemyAttack") / 2;
         attackCooldown = PlayerPrefs.GetFloat("AttackCD");
-        attackRange = PlayerPrefs.GetFloat("AttackRange") + 8f;
+        attackRange = PlayerPrefs.GetFloat("AttackRange") * 4f;
     }
 
 
@@ -30,7 +32,7 @@ public class JazzEnemyAttack : MonoBehaviour
     {
         if (lastAttack + attackCooldown < Time.time)
         {
-            if (other.CompareTag("Player") && animator.GetBool("IsAlert"))
+            if (other.CompareTag("Player") && animator.GetBool("IsAlert") && vision.getState() == EnemyVision.STATE.CHASING)
             {
                 animator.SetBool("Attack", true);
                 lastAttack = Time.time;
