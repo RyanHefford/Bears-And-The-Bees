@@ -327,6 +327,7 @@ MonoBehaviour:
   viewMeshFilter: {fileID: 1695590025}
   edgeResolveInterations: 4
   edgeDistanceThreshold: 0.5
+  animator: {fileID: 8556663001135883585}
 --- !u!82 &1676596104
 AudioSource:
   m_ObjectHideFlags: 0
@@ -443,10 +444,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2524565557795508370}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &8556663001135883585
 Animator:
@@ -467,7 +468,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1216588214
+--- !u!114 &8747890738164821424
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -476,9 +477,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2524565557795508370}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e499a547e2f7e924687d33402a317be1, type: 3}
+  m_Script: {fileID: 11500000, guid: eb01c7671c0158244b0e7e631439a700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackSound: {fileID: 8300000, guid: 59f71ec9d65d4224da6dbb3cd107df1f, type: 3}
 --- !u!1001 &1864736016230279995
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -48,7 +48,7 @@ public class EnemyVision : MonoBehaviour
     private float visionHeightAngle = 5;
 
     //bee animation
-    private Animator animator;
+    public Animator animator;
     private BeeEyeMovement eyeMovement;
 
 
@@ -59,7 +59,7 @@ public class EnemyVision : MonoBehaviour
         viewMesh.name = "View Mesh";
         viewMeshFilter.mesh = viewMesh;
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
-        animator = gameObject.GetComponentInParent<Animator>();
+        //animator = gameObject.GetComponentInParent<Animator>();
         eyeMovement = GetComponent<BeeEyeMovement>();
 
         audioSource = GetComponent<AudioSource>();

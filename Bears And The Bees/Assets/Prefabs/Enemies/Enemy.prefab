@@ -371,6 +371,7 @@ MonoBehaviour:
   viewMeshFilter: {fileID: 1695590025}
   edgeResolveInterations: 4
   edgeDistanceThreshold: 0.5
+  animator: {fileID: 7378430333884963536}
 --- !u!82 &1676596104
 AudioSource:
   m_ObjectHideFlags: 0
