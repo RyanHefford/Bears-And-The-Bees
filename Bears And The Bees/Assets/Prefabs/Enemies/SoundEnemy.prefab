@@ -90,10 +90,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1935677450405637993}
-  - component: {fileID: 2112392329753513789}
   - component: {fileID: 457879266}
   - component: {fileID: 457879260}
   - component: {fileID: 4115326869098013262}
+  - component: {fileID: 5470256605302715830}
   m_Layer: 0
   m_Name: SoundEnemy
   m_TagString: Enemy
@@ -116,21 +116,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2112392329753513789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1935677450405638005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a03e988d0c04709418e8c2a5b405a1fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  patrolPoints:
-  - {x: -21.87, y: 0, z: -21.76}
-  - {x: -21.49, y: 0, z: -42.35}
 --- !u!54 &457879266
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -265,6 +250,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5470256605302715830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935677450405638005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743d4c2b46f7d4063a3bad948f5d65fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolPoints:
+  - {x: 10, y: 0, z: 10}
+  - {x: -10, y: 0, z: -10}
 --- !u!1 &1935677451369627714
 GameObject:
   m_ObjectHideFlags: 0

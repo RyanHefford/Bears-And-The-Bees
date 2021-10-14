@@ -6,6 +6,7 @@ public class PlayerNoise : MonoBehaviour
 {
     private NoiseBarUI bar;
     private PlayerMovement movement;
+    private float noise = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,13 @@ public class PlayerNoise : MonoBehaviour
 
     public void CalculateNoise(float currSpeed)
     {
-        float noise = (currSpeed / 15.0f) * movement.currentStats.noiseMultiplier;
+        noise = (currSpeed / 15.0f) * movement.currentStats.noiseMultiplier;
         bar.UpdateNoiseLevel(noise);
     }
+
+    public float GetNoise()
+    {
+        return noise;
+    }
+
 }

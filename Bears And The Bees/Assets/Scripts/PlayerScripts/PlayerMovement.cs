@@ -155,5 +155,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public float GetCurrPlayerNoise()
+    {
+        return noise.GetNoise();
+    }
+
     
 }
